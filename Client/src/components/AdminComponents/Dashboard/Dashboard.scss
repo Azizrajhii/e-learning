@@ -1,0 +1,95 @@
+.Dashboard-container {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.Dashboard-header {
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.Dashboard-card {
+  flex: 1;
+  position: relative;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: visible;
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+}
+
+.Dashboard-card-icon-container {
+  width: 80px;
+  height: 80px;
+  top: -25px;
+  left: 30px;
+  position: absolute;
+  padding: 1rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 24px;
+  margin-right: 1rem;
+}
+
+.Dashboard-card-content-container {
+  flex: 1;
+
+  &-header {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    span {
+      font-size: 1.2rem;
+      color: #888;
+    }
+
+    h3 {
+      color: #000000;
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+
+  &-line {
+    width: 100%;
+    height: 1px;
+    background: #eee;
+    margin: 0.5rem 0;
+  }
+
+  &-progress {
+    p {
+      font-size: 1.1rem;
+      color: #555;
+      margin: 0;
+
+      span {
+        border-radius: 4px;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.Dashboard-stats {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+}
+

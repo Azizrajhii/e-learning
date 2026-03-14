@@ -1,0 +1,120 @@
+/* Light Theme Variables */
+:root {
+  --drop-bg-gradient: linear-gradient(145deg, #f0f4ff, #ffffff);
+  --drop-shadow: 8px 8px 16px #d9d9d9, -8px -8px 16px #ffffff;
+  --drop-shadow-hover: 12px 12px 24px #d9d9d9, -12px -12px 24px #ffffff;
+  --drop-border: #6c63ff;
+  --drop-border-hover: #4a45a5;
+  --drop-inner-bg: #f7f8ff;
+  --drop-text-primary: #555555;
+  --drop-text-secondary: #777777;
+  --drop-accent: #6c63ff;
+  --drop-icon-filter: none;
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
+  --drop-bg-gradient: linear-gradient(145deg, #1a1a2e, #16213e);
+  --drop-shadow: 8px 8px 16px #0f0f1a, -8px -8px 16px #25253a;
+  --drop-shadow-hover: 12px 12px 24px #0f0f1a, -12px -12px 24px #25253a;
+  --drop-border: #7d76ff;
+  --drop-border-hover: #5a54cc;
+  --drop-inner-bg: #1e1e3a;
+  --drop-text-primary: #e0e0e0;
+  --drop-text-secondary: #b0b0b0;
+  --drop-accent: #7d76ff;
+  --drop-icon-filter: brightness(0) invert(1) opacity(0.8);
+}
+
+.drop-section {
+  flex: 1;
+  max-width: 550px;
+}
+
+#drop-area {
+  width: 100%;
+  height: 320px;
+  padding: 20px;
+  background: var(--drop-bg-gradient);
+  border-radius: 20px;
+  box-shadow: var(--drop-shadow);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+#drop-area:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--drop-shadow-hover);
+}
+
+#upload-view {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  border: 2px dashed var(--drop-border);
+  background: var(--drop-inner-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: border-color 0.3s ease, background 0.3s ease;
+  padding: 0px 20px;
+}
+
+#upload-view:hover {
+  border-color: var(--drop-border-hover);
+}
+
+#upload-view img {
+  width: 180px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  filter: var(--drop-icon-filter);
+}
+
+#upload-view:hover img {
+  opacity: 1;
+}
+
+#upload-view .dropzone-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--drop-text-primary);
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+#upload-view .dropzone-hint {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--drop-text-secondary);
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+#upload-view span {
+  color: var(--drop-accent);
+  cursor: pointer;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.uploaded-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.dropzone-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  #drop-area {
+    height: fit-content;
+  }
+}
+

@@ -1,0 +1,318 @@
+:root {
+  /* Light Theme (Default) */
+  --faq-container--bg-color: transparent;
+  --faq-card--bg-color: white;
+  --faq-card--shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  --faq-sidebar--bg-color: #fff;
+  --faq-button--bg-color: #f4f4f4;
+  --faq-button--hover-bg: #e0e0e0;
+  --faq-text--primary-color: #333;
+  --faq-text--secondary-color: #555;
+  --faq-text--user-color: #515050;
+  --faq-tooltip--bg-color: rgba(0, 0, 0, 0.7);
+  --faq-action--bg-color: #f4f4f4;
+  --faq-link--color: #1877f2;
+  --faq-link--hover-color: #145db2;
+}
+
+[data-theme="dark"] {
+  /* Dark Theme Overrides */
+  --faq-container--bg-color: #121212;
+  --faq-card--bg-color: #212121;
+  --faq-card--shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  --faq-sidebar--bg-color: #212121;
+  --faq-button--bg-color: #2d2d2d;
+  --faq-button--hover-bg: #3a3a3a;
+  --faq-text--primary-color: #e0e0e0;
+  --faq-text--secondary-color: #b0b0b0;
+  --faq-text--user-color: #c0c0c0;
+  --faq-tooltip--bg-color: rgba(255, 255, 255, 0.9);
+  --faq-action--bg-color: #2d2d2d;
+  --faq-link--color: #4d8aff;
+  --faq-link--hover-color: #3a7bff;
+}
+
+.faq-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0px;
+}
+
+.faq-main-content {
+  flex: 1;
+  display: grid;
+  gap: 20px;
+}
+
+.faq-article-card {
+  margin: 0px 40px;
+  padding: 20px;
+  border-radius: 10px;
+  background: var(--faq-card--bg-color);
+  box-shadow: var(--faq-card--shadow);
+  transition: transform 0.3s ease;
+}
+
+.faq-article-image {
+  max-height: 600px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.faq-sidebar {
+  width: 450px;
+  background: var(--faq-sidebar--bg-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0px;
+  height: fit-content;
+  align-self: flex-start;
+}
+
+.faq-sidebar-button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--faq-button--bg-color);
+  border: none;
+  text-align: center;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  color: var(--faq-text--primary-color);
+}
+
+.faq-sidebar-button:hover {
+  background-color: var(--faq-button--hover-bg);
+}
+
+.faq-sidebar h2 {
+  margin-top: 20px;
+  font-size: 19px;
+  color: var(--faq-text--primary-color);
+}
+
+.faq-sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.faq-sidebar ul li {
+  margin: 10px 0;
+  color: var(--faq-text--secondary-color);
+  display: flex;
+  align-items: center;
+}
+
+.faq-sideBar-Trending li span {
+  color: var(--faq-text--secondary-color);
+  font-size: 16px;
+}
+
+.faq-sideBar-Contributors li {
+  color: var(--faq-text--secondary-color);
+  padding: 10px 0;
+}
+
+.faq-sideBar-Contributors li span {
+  font-size: 20px;
+}
+
+.faq-sidebar ul li img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.faq-sidebar ul li span {
+  vertical-align: middle;
+}
+
+.faq-sidebar ul li:hover {
+  background-color: #f9f9f9;
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+/* Profile Picture */
+.faq-user-pdp {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  /* Makes the image round */
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.faq-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.faq-article-card h3,
+.faq-article-card p {
+  color: var(--faq-text--user-color);
+}
+
+.faq-header-user-and-time {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-right: 20px;
+}
+
+.faq-user {
+  color: var(--faq-text--user-color);
+  font-weight: 700;
+}
+
+.faq-user:hover {
+  text-decoration: underline;
+}
+
+.faq-date {
+  position: relative;
+  display: inline-block;
+  color: var(--faq-text--user-color);
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  /* Remove default underline on hover */
+}
+
+.faq-date:hover {
+  /* You can add a subtle text decoration on hover if desired */
+  text-decoration: underline;
+}
+
+.faq-full-date {
+  display: none;
+  outline: none;
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  white-space: nowrap;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+/* Add a pointer arrow using a pseudo-element */
+.faq-full-date::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.7) transparent transparent transparent;
+  /* Arrow color matches background */
+}
+
+/* Adjust arrow border color if you have a border on the tooltip */
+.faq-full-date.with-border::before {
+  border-top-color: rgba(0, 0, 0, 0.7);
+  /* Match border color */
+  top: calc(100% - 1px);
+  /* Adjust position to sit on the border */
+}
+
+.faq-date:hover .faq-full-date {
+  display: block;
+}
+
+.faq-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.faq-likes-container,
+.faq-comments-container,
+.faq-saves-container {
+  width: fit-content;
+  height: 45px;
+  border-radius: 25px;
+  padding: 10px 20px;
+  color: var(--faq-text--user-color);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background-color: var(--faq-action--bg-color);
+  cursor: pointer;
+}
+
+.faq-saves-container:hover,
+.faq-likes-container:hover,
+.faq-comments-container:hover {
+  background-color: var(--faq-button--hover-bg);
+}
+
+.faq-saves-container button {
+  width: fit-content;
+}
+
+.faq-saves-container button img {
+  height: 25px;
+}
+
+/* Truncation and expand styles */
+.faq-article-content {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /* Limit content to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 0.3s ease;
+}
+
+.faq-article-content.expanded {
+  display: block;
+  /* Show full content when expanded */
+  -webkit-line-clamp: unset;
+  /* Remove line clamp */
+}
+
+/* Toggle button */
+.faq-toggle-button {
+  background: none;
+  border: none;
+  color: #4d79ff;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.article-link {
+  display: inline-block;
+  color: var(--faq-link--color);
+  /* bleu style Facebook */
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 8px;
+  word-break: break-word;
+  /* utile pour les longs liens */
+  transition: color 0.2s ease;
+  font-size: 23px;
+}
+
+.article-link:hover {
+  color: var(--faq-link--hover-color);
+  text-decoration: underline;
+}
+

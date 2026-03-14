@@ -1,0 +1,411 @@
+:root {
+  /* Light Theme Colors */
+  --bg-color: #f9fbfd;
+  --text-color: #2d3748;
+  --text-secondary: #4a5568;
+  --primary-color: #4299e1;
+  --primary-hover: #3182ce;
+  --card-bg: white;
+  --card-hover: #ebf8ff;
+  --border-color: #e2e8f0;
+  --weekday-bg: #4299e1;
+  --weekday-text: white;
+  --other-month-bg: #f7fafc;
+  --other-month-text: #a0aec0;
+  --modal-bg: white;
+  --modal-text: #2a4365;
+  --input-bg: white;
+  --input-border: #e2e8f0;
+  --button-cancel-bg: white;
+  --button-cancel-border: #e2e8f0;
+  --button-cancel-hover: #f7fafc;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --event-default: #4299e1;
+}
+
+[data-theme="dark"] {
+  /* Dark Theme Colors */
+  --bg-color: #1e1e1e;
+  --text-color: #e2e8f0;
+  --text-secondary: #a0aec0;
+  --primary-color: #63b3ed;
+  --primary-hover: #4299e1;
+  --card-bg: #2d3748;
+  --card-hover: #4a5568;
+  --border-color: #4a5568;
+  --weekday-bg: #2c5282;
+  --weekday-text: #ebf8ff;
+  --other-month-bg: #1a202c;
+  --other-month-text: #718096;
+  --modal-bg: #2d3748;
+  --modal-text: #ebf8ff;
+  --input-bg: #1a202c;
+  --input-border: #4a5568;
+  --button-cancel-bg: #2d3748;
+  --button-cancel-border: #4a5568;
+  --button-cancel-hover: #4a5568;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --event-default: #63b3ed;
+}
+
+/* Main Calendar Container */
+.skillshare-calendar {
+  max-width: 1400px;
+  margin: 0rem auto;
+  padding: 2rem;
+  background: var(--bg-color);
+  border-radius: 15px;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  position: relative;
+  color: var(--text-color);
+}
+
+/* Header Styles */
+.skillshare-calendar-header {
+  text-align: center;
+  margin-bottom: 5.5rem;
+  position: relative;
+}
+
+.skillshare-calendar-title {
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.skillshare-calendar-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+/* Month Selector */
+.skillshare-month-selector {
+  margin: 1rem 0;
+  display: flex;
+  position: absolute;
+  right: 0;
+}
+
+.skillshare-month-input {
+  padding: 0.8rem 1rem;
+  border: 2px solid var(--input-border);
+  border-radius: 8px;
+  font-size: 1rem;
+  background: var(--input-bg);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.skillshare-month-input:hover {
+  border-color: var(--primary-color);
+}
+
+.skillshare-month-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
+/* Calendar Grid */
+.skillshare-calendar-grid {
+  display: grid;
+  grid-template-rows: auto;
+  gap: 1px;
+  background: var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.skillshare-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background: var(--weekday-bg);
+  color: var(--weekday-text);
+  padding: 1rem 0;
+}
+
+.skillshare-weekday {
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.skillshare-week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  min-height: 110px;
+}
+
+.skillshare-day {
+  background: var(--card-bg);
+  padding: 0.8rem;
+  border-bottom: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.skillshare-day:hover {
+  background: var(--card-hover);
+  transform: scale(1.02);
+  z-index: 1;
+}
+
+.skillshare-other-month {
+  background: var(--other-month-bg);
+  color: var(--other-month-text);
+}
+
+.skillshare-date-number {
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.skillshare-events {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.skillshare-event {
+  font-size: 0.8rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  word-break: break-word;
+  background-color: var(--event-default);
+}
+
+.skillshare-event:hover {
+  opacity: 0.8;
+}
+
+/* Modal Styles */
+.skillshare-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.skillshare-modal {
+  background: var(--modal-bg);
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  position: relative;
+  z-index: 1001;
+  animation: skillshareModalFadeIn 0.3s ease;
+  color: var(--modal-text);
+}
+
+@keyframes skillshareModalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.skillshare-modal-title {
+  margin-top: 0;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.skillshare-modal-date {
+  margin-bottom: 25px;
+  color: var(--primary-color);
+  text-align: center;
+  font-size: 30px;
+}
+
+.skillshare-group {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.event-name-container {
+  width: 70%;
+}
+
+.event-color-container {
+  justify-items: center;
+}
+
+.skillshare-form-textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid var(--input-border);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+  min-height: 100px;
+  background: var(--input-bg);
+  color: var(--text-color);
+}
+
+.skillshare-form-textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+/* Form Styles */
+.skillshare-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.skillshare-form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.skillshare-form-input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid var(--input-border);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  height: 50px;
+  background: var(--input-bg);
+  color: var(--text-color);
+}
+
+.skillshare-form-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.skillshare-color-input {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid var(--text-secondary);
+  outline: none;
+  background: none;
+  padding: 0;
+}
+
+/* Modal Actions */
+.skillshare-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.skillshare-cancel-btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  background: var(--button-cancel-bg);
+  border: 2px solid var(--button-cancel-border);
+  color: var(--text-secondary);
+}
+
+.skillshare-cancel-btn:hover {
+  border-color: var(--border-color);
+  background: var(--button-cancel-hover);
+}
+
+.skillshare-save-btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+}
+
+.skillshare-save-btn:hover {
+  background: var(--primary-hover);
+}
+
+.skillshare-save-btn:disabled {
+  background: var(--other-month-text);
+  cursor: not-allowed;
+}
+
+/* Delete Button */
+.skillshare-delete-btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  background: #f56565;
+  color: white;
+  border: none;
+}
+
+.skillshare-delete-btn:hover {
+  background: #e53e3e;
+}
+
+/* Text Elements */
+.skillshare-modal-text {
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.skillshare-modal-description {
+  font-size: 20px;
+  color: var(--text-color);
+}
+
+.skillshare-delete-message {
+  padding: 30px 0 0 0;
+  text-align: center;
+  color: #f56565;
+  font-weight: bold;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .skillshare-calendar {
+    padding: 1rem;
+  }
+  
+  .skillshare-calendar-title {
+    font-size: 2rem;
+  }
+  
+  .skillshare-week {
+    min-height: 80px;
+  }
+  
+  .skillshare-modal {
+    padding: 1.5rem;
+    margin: 0 1rem;
+  }
+}

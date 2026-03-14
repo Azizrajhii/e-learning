@@ -1,0 +1,214 @@
+/* custom-select.css */
+.custom-select {
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.custom-select label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--editpage-text);
+}
+
+.select-header {
+  padding: 12px 16px;
+  border: 2px solid var(--editpage-input-border);
+  border-radius: 12px;
+  background-color: var(--editpage-input-bg);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  color: var(--editpage-text);
+}
+
+.select-header:hover,
+.select-header:focus {
+  border-color: var(--editpage-input-hover);
+  box-shadow: 0 4px 12px rgba(108, 99, 255, 0.2);
+  outline: none;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+  color: var(--editpage-text);
+}
+
+.arrow.open {
+  transform: rotate(180deg);
+}
+
+.select-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--editpage-input-bg);
+  border: 2px solid var(--editpage-input-border);
+  border-radius: 12px;
+  box-shadow: var(--editpage-card-shadow);
+  z-index: 10;
+  overflow: hidden;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative;
+  z-index: 2;
+  height: 40px;
+  color: var(--editpage-text);
+}
+
+.option:hover {
+  background-color: var(--editpage-input-hover);
+  border-radius: 12px;
+}
+
+.option.active {
+  color: #ffffff;
+}
+
+.option-icon {
+  width: 20px;
+  height: 20px;
+}
+
+#option-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background-color: var(--editpage-input-hover);
+  transition: top 0.3s ease;
+  z-index: 1;
+  border-radius: 8px;
+}
+
+.select-header-option {
+  display: flex;
+  gap: 20px;
+}
+
+.add-option {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-top: 2px solid var(--editpage-input-border);
+  background-color: var(--editpage-input-bg);
+}
+
+.add-option input {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid var(--editpage-input-border);
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  background-color: var(--editpage-input-bg);
+  color: var(--editpage-text);
+}
+
+.add-option input:focus,
+.add-option input:hover {
+  border-color: var(--editpage-input-hover);
+  box-shadow: 0 0 5px rgba(108, 99, 255, 0.4);
+}
+
+.add-option button {
+  padding: 10px 14px;
+  font-size: 18px;
+  margin-left: 8px;
+  background-color: var(--editpage-input-hover);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-option button:hover {
+  background: var(--editpage-button-primary-hover);
+}
+
+.all-select-and-upload {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-section {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  max-height: 200px;
+  width: fit-content; 
+  max-width: 200px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 2px dashed var(--editpage-input-hover);
+  border-radius: 8px;
+  background: var(--editpage-dropzone-bg);
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.upload-section label {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upload-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+  padding: 10px;
+}
+
+.upload-icon {
+  width: 100%;
+  object-fit: contain;
+  color: var(--editpage-dropzone-icon);
+}
+
+.upload-text {
+  font-size: 14px;
+  color: var(--editpage-text);
+  font-weight: 600;
+}
+
+.uploaded-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upload-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.uploaded-image span {
+  font-size: 14px;
+  color: var(--editpage-text);
+  font-weight: 600;
+}

@@ -1,0 +1,270 @@
+/* Light Theme Variables */
+:root {
+  --form-bg: #f7f8ff;
+  --form-shadow: 4px 4px 12px rgba(0, 0, 0, 0.05);
+  --tab-text: #555555;
+  --tab-text-hover: #1a1a1a;
+  --tab-text-active: #1a1a1a;
+  --tab-underline: #6c63ff;
+  --tab-icon-filter: none;
+  --form-label: #333333;
+  --form-input-border: #e0e0e0;
+  --form-input-bg: #ffffff;
+  --form-input-text: #333333;
+  --form-input-hover: #6c63ff;
+  --form-input-focus: #6c63ff;
+  --form-input-hover-shadow: 0 4px 12px rgba(108, 99, 255, 0.2);
+  --form-input-focus-shadow: 0 4px 16px rgba(108, 99, 255, 0.3);
+  --checkbox-accent: #6c63ff;
+  --checkbox-label: #555555;
+  --btn-primary-bg: #6c63ff;
+  --btn-primary-text: #ffffff;
+  --btn-primary-hover: #4a45a5;
+  --btn-secondary-bg: #f0f0f0;
+  --btn-secondary-text: #555555;
+  --btn-secondary-hover: #dddddd;
+  --helper-text: #777777;
+  --helper-link: #6c63ff;
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
+  --form-bg: #1e1e2e;
+  --form-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+  --tab-text: #b0b0b0;
+  --tab-text-hover: #ffffff;
+  --tab-text-active: #ffffff;
+  --tab-underline: #7d76ff;
+  --tab-icon-filter: brightness(0) invert(1);
+  --form-label: #e0e0e0;
+  --form-input-border: #444444;
+  --form-input-bg: #252525;
+  --form-input-text: #f0f0f0;
+  --form-input-hover: #7d76ff;
+  --form-input-focus: #7d76ff;
+  --form-input-hover-shadow: 0 4px 12px rgba(125, 118, 255, 0.2);
+  --form-input-focus-shadow: 0 4px 16px rgba(125, 118, 255, 0.3);
+  --checkbox-accent: #7d76ff;
+  --checkbox-label: #c0c0c0;
+  --btn-primary-bg: #6c63ff;
+  --btn-primary-text: #ffffff;
+  --btn-primary-hover: #7d76ff;
+  --btn-secondary-bg: #333344;
+  --btn-secondary-text: #e0e0e0;
+  --btn-secondary-hover: #444455;
+  --helper-text: #a0a0a0;
+  --helper-link: #7d76ff;
+}
+
+.form-section {
+  flex: 1;
+  padding: 20px;
+  background: var(--form-bg);
+  border-radius: 10px;
+  box-shadow: var(--form-shadow);
+  transition: all 0.3s ease;
+}
+
+.tabs {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.tabs button {
+  background: none;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--tab-text);
+  position: relative;
+  transition: color 0.3s ease;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.tabs button:hover {
+  color: var(--tab-text-hover);
+}
+
+.tabs button img {
+  height: 25px;
+}
+
+.tabs button.active-tab {
+  color: var(--tab-text-active);
+}
+
+.underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background-color: var(--tab-underline);
+  transition: all 0.3s ease;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--form-label);
+}
+
+.form-group select,
+.form-group textarea,
+.form-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--form-input-border);
+  border-radius: 12px;
+  background-color: var(--form-input-bg);
+  font-size: 14px;
+  color: var(--form-input-text);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  appearance: none;
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+}
+
+.form-group select:hover,
+.form-group input:hover,
+.form-group textarea:hover {
+  border-color: var(--form-input-hover);
+  box-shadow: var(--form-input-hover-shadow);
+}
+
+.form-group select:focus,
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--form-input-focus);
+  outline: none;
+  box-shadow: var(--form-input-focus-shadow);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.checkbox-group {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-group input {
+  margin-right: 8px;
+  accent-color: var(--checkbox-accent);
+}
+
+.checkbox-group label {
+  font-size: 14px;
+  color: var(--checkbox-label);
+}
+
+.form-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.upload-btn {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.upload-btn:hover {
+  background: var(--btn-primary-hover);
+}
+
+.cancel-btn {
+  background: var(--btn-secondary-bg);
+  color: var(--btn-secondary-text);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background: var(--btn-secondary-hover);
+}
+
+.helper-text {
+  margin-top: 15px;
+  font-size: 14px;
+  color: var(--helper-text);
+  text-align: center;
+}
+
+.helper-text a {
+  color: var(--helper-link);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.helper-text a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .tabs button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .form-group select,
+  .form-group textarea,
+  .form-group input {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .upload-btn,
+  .cancel-btn {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tabs {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .tabs button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .upload-btn,
+  .cancel-btn {
+    width: 100%;
+  }
+}

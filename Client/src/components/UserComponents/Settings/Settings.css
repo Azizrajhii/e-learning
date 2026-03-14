@@ -1,0 +1,21 @@
+
+
+.settings-page {
+  color: black;
+}
+
+.css-k16oju-MuiTypography-root {
+  color: red;
+}
+
+[data-theme="dark"] .settings-page {
+  color: white;
+}
+
+[data-theme="dark"] .MuiTabs-list .MuiButtonBase-root {
+  color: white !important;
+}
+
+[data-theme="dark"] .MuiTabs-indicator {
+  background: white !important;
+}

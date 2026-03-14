@@ -1,0 +1,282 @@
+@import './../variables.scss';
+$hover-transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.3s ease;
+$item-hover-bg: rgba(255, 255, 255, 0.12);
+
+.Admin-SideBar-Container {
+    height: 100vh;
+    display: flex;
+    position: sticky;
+    max-width: 100vh;
+
+    .CloseBtnWrapper {
+        position: absolute;
+        top: 25px;
+        left: 340px;
+        transition: left 0.3s ease;
+        z-index: 10;
+
+
+        button {
+            width: 48px;
+            height: 48px;
+            font-size: 24px;
+            background-color: lighten($bg-sidebar, 5%);
+            color: $text-light;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: background-color 0.2s ease, transform 0.2s ease;
+
+            &:hover {
+                background-color: $button-hover;
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    .Admin-SideBar {
+        padding: 24px 10px;
+        height: 100vh;
+        width: 100px;
+        background: linear-gradient(180deg, $bg-sidebar 0%, darken($bg-sidebar, 8%) 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        transition: width 0.3s ease;
+
+        &.isOpen {
+            width: 320px;
+        }
+
+        &__Logo {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            padding: 0 10px;
+
+            span {
+                font-size: 1.6rem;
+                font-weight: 700;
+                color: $text-light;
+                opacity: 0;
+                animation: fadeInSpan 0.3s ease-in-out 0.3s forwards;
+            }
+
+            img {
+                width: 48px;
+                height: 48px;
+                border-radius: 12px;
+            }
+
+            @keyframes fadeInSpan {
+                from {
+                    opacity: 0;
+                    transform: translateY(5px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        }
+
+        &__header {
+            margin-bottom: 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .MenuAdminOpen {
+            font-size: 32px;
+            color: $text-light;
+
+            button {
+                width: 64px;
+                height: 64px;
+                background: none;
+                border: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 16px;
+                transition: background-color 0.2s;
+
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.1);
+                }
+            }
+        }
+
+        &__Line {
+            width: 90%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .Admin-SideBar-Search {
+            width: 100%;
+            padding: 0 20px;
+            margin: 20px 0;
+            position: relative;
+
+            .search-icon {
+                position: absolute;
+                top: 50%;
+                left: 32px;
+                transform: translateY(-50%);
+                font-size: 18px;
+                color: rgba(255, 255, 255, 0.6);
+                pointer-events: none;
+            }
+
+            input[type="search"] {
+                width: 100%;
+                padding: 10px 16px 10px 42px; // left padding adjusted for icon
+                font-size: 1rem;
+                border: none;
+                border-radius: 12px;
+                background-color: lighten($bg-sidebar, 8%);
+                color: $text-light;
+                outline: none;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+                transition: background-color 0.3s, box-shadow 0.3s;
+
+                &::placeholder {
+                    color: rgba(255, 255, 255, 0.5);
+                }
+
+                &:focus {
+                    background-color: lighten($bg-sidebar, 12%);
+                    box-shadow: 0 0 0 2px $button-hover;
+                }
+            }
+        }
+
+        .Admin-SideBar__Navs {
+            margin-top: 32px;
+
+            &.isOpen {
+                width: 100%;
+            }
+
+            ul {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                li {
+                    cursor: pointer;
+                    display: flex;
+                    flex-direction: column;
+                    transition: transform 0.2s ease;
+
+                    &.setting {
+                        position: absolute;
+                        bottom: 10px !important;
+                    }
+
+                    &.isOpen {
+                        width: calc(100% - 21px);
+                    }
+
+                    .SidebarItem {
+                        font-size: 1.3rem;
+                        display: flex;
+                        align-items: center;
+                        gap: 12px;
+                        padding: 12px 18px;
+                        border-radius: 10px;
+                        transition: $hover-transition;
+
+                        &:hover {
+                            background-color: $item-hover-bg;
+                            transform: translateX(4px);
+
+                            &:before {
+                                background-color: rgba(255, 255, 255, 0.6);
+                            }
+
+                            svg {
+                                color: rgba(255, 255, 255, 0.95);
+                                transform: scale(1.1);
+                            }
+                        }
+
+                        & svg {
+                            width: 32px;
+                            height: 32px;
+                        }
+
+                        .chevron {
+                            width: 20px;
+                            height: 20px;
+                            margin-left: auto;
+                            transition: transform 0.3s ease;
+                        }
+
+                        .chevron.rotate {
+                            transform: rotate(180deg);
+                        }
+                    }
+
+                    .Admin-sidebar__submenu-items {
+                        width: 250px;
+                        margin-left: 30px;
+                        list-style: none;
+                        padding-left: 40px;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 12px;
+                        overflow: visible;
+                        opacity: 0;
+                        transition: max-height 0.3s ease, opacity 0.3s ease;
+                        pointer-events: none;
+
+                        &.open {
+                            max-height: 300px; // Adjust based on item count
+                            opacity: 1;
+                            pointer-events: auto;
+                        }
+
+                        li {
+                            border-radius: 10px;
+                            padding: 10px 16px;
+                            font-size: 1.2rem;
+                            color: $text-light;
+
+                            &:hover {
+                                background-color: $item-hover-bg;
+                                transform: translateX(6px);
+
+                                &:before {
+                                    width: 16px;
+                                }
+
+                                svg {
+                                    transform: scale(1.15);
+                                    color: rgba(255, 255, 255, 0.95);
+                                }
+                            }
+
+                            a {
+                                display: flex;
+                                align-items: center;
+                                gap: 10px;
+                                text-decoration: none;
+                                color: inherit;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

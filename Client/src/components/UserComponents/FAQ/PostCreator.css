@@ -1,0 +1,500 @@
+:root {
+  /* Light Theme Overrides */
+  --faq-postcreator--bg-color: #ffffff;
+  --faq-postcreator--border-color: #e4e4e4;
+  --faq-postcreator--text-color: #333333;
+  --faq-postcreator--secondary-text: #666666;
+  --faq-postcreator--input-bg: #f5f5f5;
+  --faq-postcreator--hover-bg: #f0f0f0;
+  --faq-postcreator--modal-bg: #ffffff;
+  --faq-postcreator--modal-border: #dddddd;
+  --faq-postcreator--modal-text: #333333;
+  --faq-postcreator--button-bg: #f0f2f5;
+  --faq-postcreator--button-text: #606770;
+  --faq-postcreator--upload-bg: #f0f2f5;
+  --faq-postcreator--upload-text: #65676b;
+  --faq-postcreator--post-btn-bg: #e4e6eb;
+  --faq-postcreator--post-btn-text: #bcc0c4;
+  --faq-postcreator--active-btn-bg: #1877f2;
+  --faq-postcreator--active-btn-text: white;
+  --faq-postcreator--dashed-border: #dddfe2;
+  --faq-postcreator--overlay-bg: rgba(0, 0, 0, 0.5);
+  --faq-postcreator--shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+  /* Dark Theme (Default) */
+  --faq-postcreator--bg-color: #212121;
+  --faq-postcreator--border-color: #333;
+  --faq-postcreator--text-color: #e0e0e0;
+  --faq-postcreator--secondary-text: #bbb;
+  --faq-postcreator--input-bg: #2d2d2d;
+  --faq-postcreator--hover-bg: #2d2d2d;
+  --faq-postcreator--modal-bg: #242526;
+  --faq-postcreator--modal-border: #3a3b3c;
+  --faq-postcreator--modal-text: #e4e6eb;
+  --faq-postcreator--button-bg: #3a3b3c;
+  --faq-postcreator--button-text: #aaa;
+  --faq-postcreator--upload-bg: #3a3b3c;
+  --faq-postcreator--upload-text: #b0b3b8;
+  --faq-postcreator--post-btn-bg: #505151;
+  --faq-postcreator--post-btn-text: #9a9d9f;
+  --faq-postcreator--active-btn-bg: #2374e1;
+  --faq-postcreator--active-btn-text: white;
+  --faq-postcreator--dashed-border: #3a3b3c;
+  --faq-postcreator--overlay-bg: rgba(0, 0, 0, 0.7);
+  --faq-postcreator--shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* PostCreator.css */
+.faq-PostCreator-container {
+  background-color: var(--faq-postcreator--bg-color);
+  padding: 24px;
+  border-radius: 10px;
+  margin: 0px 40px;
+  height: fit-content;
+}
+
+.faq-PostCreator-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 16px;
+  padding: 15px 20px;
+}
+
+.faq-PostCreator-profilePicture {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.faq-PostCreator-profilePicture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.faq-PostCreator-inputWrapper {
+  flex: 1;
+  height: 60px;
+}
+
+.faq-PostCreator-input {
+  width: 100%;
+  height: 100%;
+  background-color: var(--faq-postcreator--input-bg);
+  color: var(--faq-postcreator--text-color);
+  padding: 8px 30px;
+  border-radius: 50px;
+  font-size: 22px;
+  border: none;
+  outline: none;
+}
+
+.faq-PostCreator-actionBar {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 16px;
+  border-top: 1px solid #333;
+}
+
+.faq-PostCreator-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 0px;
+  width: 25%;
+  border-radius: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--faq-postcreator--text-color);
+  transition: background-color 0.2s;
+}
+
+.faq-PostCreator-button:hover {
+  background-color: var(--faq-postcreator--hover-bg);
+}
+
+.faq-PostCreator-button span {
+  font-size: 24px;
+  color: var(--faq-postcreator--secondary-text);
+}
+
+.faq-PostCreator-button img {
+  width: 35px;
+}
+
+/* Modal Styles */
+.faq-PostCreator-modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.faq-PostCreator-modalContent {
+  background-color: var(--faq-postcreator--modal-bg);
+  box-shadow: var(--faq-postcreator--shadow);
+  border-radius: 8px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 97vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-PostCreator-modalHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid var(--faq-postcreator--modal-border);
+  position: relative;
+}
+
+.faq-PostCreator-modalHeader h3 {
+  margin: 0;
+  color: var(--faq-postcreator--modal-text);
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.faq-PostCreator-closeButton {
+  background: var(--faq-postcreator--button-bg);
+  color: var(--faq-postcreator--button-text);
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.faq-PostCreator-userInfo {
+  display: flex;
+  gap: 15px;
+  padding: 16px 16px 0;
+  align-items: center;
+}
+
+.faq-PostCreator-modalProfilePic {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.faq-PostCreator-modalProfilePic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.faq-PostCreator-userName {
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--faq-postcreator--modal-text);
+  margin-bottom: 4px;
+}
+
+.emoji-picker-container {
+  position: absolute;
+}
+
+.faq-PostCreator-textAreaContainer {
+  position: relative;
+  margin: 30px;
+}
+
+.faq-PostCreator-Writnig-with-emoji {
+  display: flex;
+  align-items: center;
+}
+
+.faq-PostCreator-inputTitle {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 3px;
+  background: transparent;
+  border: none;
+  resize: none;
+  color: var(--faq-postcreator--modal-text);
+  font-size: 18px;
+  padding: 0;
+  outline: none;
+  font-family: inherit;
+}
+
+.faq-postcreator-line {
+  height: 1px;
+  background-color: var(--faq-postcreator--modal-border);
+  width: 95%;
+  margin: 0 auto;
+}
+
+.faq-PostCreator-textArea {
+  margin-top: 13px;
+  width: 100%;
+  min-height: 100px;
+  background: transparent;
+  border: none;
+  resize: none;
+  color: var(--faq-postcreator--modal-text);
+  font-size: 18px;
+  padding: 0;
+  outline: none;
+  font-family: inherit;
+}
+
+.faq-PostCreator-contentUploader {
+  margin: 10px 16px;
+  border: 1px dashed var(--faq-postcreator--dashed-border);
+  border-radius: 8px;
+  position: relative;
+  padding: 40px 0 0 0;
+}
+
+.faq-PostCreator-closeContentUploader {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  background: var(--faq-postcreator--button-bg);
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+
+.faq-PostCreator-photoUploaderContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+  cursor: pointer;
+}
+
+.Upload-PhotoOrVideo:hover {
+  background-color: #212121d7;
+}
+
+.faq-PostCreator-photoIcon {
+  background-color: var(--faq-postcreator--upload-bg);
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.faq-PostCreator-uploadText {
+  color: var(--faq-postcreator--modal-text);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.faq-PostCreator-dragText {
+  color: var(--faq-postcreator--upload-text);
+  font-size: 14px;
+}
+
+.faq-PostCreator-fileInput-upload {
+  display: none;
+}
+
+.faq-PostCreator-videoPreview video {
+  max-width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.faq-PostCreator-previewImg {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.faq-PostCreator-fileName {
+  margin-top: 0.5rem;
+  color: #555;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.faq-PostCreator-addToPost {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--faq-postcreator--upload-bg);
+  border-radius: 8px;
+  margin: 16px;
+  padding: 8px 16px;
+}
+
+.faq-PostCreator-addToPostText {
+  color: var(--faq-postcreator--upload-text);
+  font-weight: 500;
+}
+
+.faq-PostCreator-addToPostOptions {
+  display: flex;
+  gap: 8px;
+}
+
+.faq-PostCreator-addOption {
+  background: transparent;
+  border: none;
+  padding: 4px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.faq-PostCreator-optionIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.faq-PostCreator-gifText {
+  font-weight: bold;
+  color: #606770;
+  font-size: 14px;
+}
+
+.faq-PostCreator-postButton {
+  background-color: var(--faq-postcreator--post-btn-bg);
+  color: var(--faq-postcreator--post-btn-text);
+  width: calc(100% - 32px);
+  margin: 16px;
+  padding: 8px 0;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  cursor: not-allowed;
+}
+
+.faq-PostCreator-postButton:not([disabled]) {
+  background-color: var(--faq-postcreator--active-btn-bg);
+  color: var(--faq-postcreator--active-btn-text);
+  cursor: pointer;
+}
+
+.faq-PostCreator-PollUploaderContent {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 50px;
+}
+
+.faq-PostCreator-addOptionBtn {
+  background-color: var(--faq-postcreator--button-bg);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #1877f2;
+  transition: background-color 0.2s;
+}
+
+.faq-PostCreator-addOptionBtn:hover {
+  background-color: var(--faq-postcreator--hover-bg);
+}
+
+.Poll-questionInput {
+  border-color: var(--faq-postcreator--border-color);
+}
+
+.faq-PostCreator-fileInput {
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+  color: var(--faq-postcreator--modal-text);
+}
+
+.mt-2 {
+  width: 96%;
+  margin-left: 4%;
+  border: 1px #d1d5db dashed;
+}
+
+/**/
+/* Loading indicator */
+.faq-PostCreator-loadingIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.faq-PostCreator-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: faq-PostCreator-spin 1s ease-in-out infinite;
+}
+
+@keyframes faq-PostCreator-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Notification */
+.faq-PostCreator-notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10000;
+  animation: faq-PostCreator-fadeIn 0.3s;
+}
+
+@keyframes faq-PostCreator-fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Disabled state */
+.faq-PostCreator-postButton:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.faq-PostCreator-addOption:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

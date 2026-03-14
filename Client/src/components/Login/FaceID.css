@@ -1,0 +1,166 @@
+.face-id-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 10000;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  opacity: 1;
+  transition: opacity 0.3s ease-out;
+}
+
+.face-id-container.closing {
+  opacity: 0;
+}
+
+.face-id-modal {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 0 0 16px 16px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 800px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  height: fit-content;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transform: translateY(0);
+  transition: transform 0.3s ease-out;
+}
+
+.face-id-container:not(.closing) .face-id-modal {
+  animation: slideDown 0.3s ease-out;
+}
+
+.face-id-container.closing .face-id-modal {
+  transform: translateY(-100%);
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+.face-id-icon {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+}
+
+.face-id {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.face-id img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.face-id-scan {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: height 0.1s linear;
+}
+
+/* Dark mode support */
+[data-theme="dark"] .face-id-modal {
+  background-color: rgba(30, 30, 30, 0.95);
+  border: 1px solid rgba(60, 60, 60, 0.2);
+}
+
+[data-theme="dark"] .face-id-scan {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+#video-container {
+  position: relative;
+}
+
+#video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: absolute;
+  z-index: -1;
+}
+
+#result-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90%;
+  display: none;
+}
+
+.animation-active #video {
+  display: none;
+}
+
+.animation-active #result-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lottie-animation {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.recognized-user {
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  z-index: 10;
+}
+
+.user-greeting {
+  margin-top: 20px;
+  padding: 15px 30px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 8px;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+
+.error-message button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.error-message button:hover {
+  background-color: #b71c1c;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

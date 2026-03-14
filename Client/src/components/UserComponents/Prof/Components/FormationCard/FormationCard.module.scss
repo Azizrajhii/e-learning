@@ -1,0 +1,80 @@
+:root {
+  /* Base Colors */
+  --primary-color: #4361ee;
+  --primary-hover: #3a0ca3;
+  --secondary-color: #17a2b8;
+  --success-color: #28a745;
+
+  /* Light Theme (Default) */
+  --card-bg: #ffffff;
+  --card-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  --card-hover-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  --image-bg: #f8f9fa;
+  --image-inner-bg: #ffffff;
+  --image-inner-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --title-color: #212529;
+  --category-color: #4361ee;
+  --description-color: #495057;
+  --meta-color: #6c757d;
+  --progress-bg: #495057;
+  --progress-text: #ffffff;
+  --edit-btn-bg: #4361ee;
+  --edit-btn-text: #ffffff;
+  --edit-btn-hover: #3a0ca3;
+
+  /* Status Colors */
+  --upcoming-bg: rgba(67, 97, 238, 0.1);
+  --upcoming-text: #4361ee;
+  --inprogress-bg: rgba(23, 162, 184, 0.1);
+  --inprogress-text: #17a2b8;
+  --completed-bg: rgba(40, 167, 69, 0.1);
+  --completed-text: #28a745;
+}
+
+[data-theme="dark"] {
+  /* Dark Theme Overrides */
+  --card-bg: #1e1e1e;
+  --card-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  --card-hover-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  --image-bg: #252525;
+  --image-inner-bg: #2d2d2d;
+  --image-inner-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --title-color: #f8f9fa;
+  --category-color: #5a75ff;
+  --description-color: #adb5bd;
+  --meta-color: #8e8e8e;
+  --progress-bg: #6c757d;
+  --progress-text: #ffffff;
+  --edit-btn-bg: #5a75ff;
+  --edit-btn-text: #ffffff;
+  --edit-btn-hover: #4a42d1;
+
+  /* Dark Theme Status Colors */
+  --upcoming-bg: rgba(90, 117, 255, 0.2);
+  --inprogress-bg: rgba(23, 162, 184, 0.2);
+  --completed-bg: rgba(40, 167, 69, 0.2);
+}
+
+.editButton {
+  background: var(--edit-btn-bg);
+  color: var(--edit-btn-text);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background: var(--edit-btn-hover);
+    transform: translateY(-1px);
+  }
+
+  svg {
+    font-size: 16px;
+  }
+}

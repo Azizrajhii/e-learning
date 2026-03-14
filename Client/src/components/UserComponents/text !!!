@@ -1,0 +1,292 @@
+import { useEffect } from "react";
+import gsap from "gsap";
+import "./App.css";
+
+const App = () => {
+  useEffect(() => {
+    // Animation for fading out the loading page
+    gsap.fromTo(
+      ".loading-page",
+      { opacity: 1 },
+      {
+        opacity: 0,
+        display: "none",
+        duration: 1.5,
+        delay: 3.5,
+      }
+    );
+
+    // Animation for logo name
+    gsap.fromTo(
+      ".logo-name",
+      {
+        y: 50,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 2,
+        delay: 0.5,
+      }
+    );
+  }, []);
+
+  return (
+    <div className="container">
+      <div className="loading-page">
+        <svg
+          version="1.1"
+          className="logo"
+          width="201"
+          height="45"
+          id="svg"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlnsXlink="http://www.w3.org/1999/xlink"
+          viewBox="0 0 655.4 229.32"
+          style={{ enableBackground: "new 0 0 655.4 229.32" }}
+          xmlSpace="preserve"
+        >
+          <g>
+            <path
+              d="M180.13,206.51c-1.05,0.7-2.32,1.49-3.48,2.16l-0.36,0.2l0.36,0.04c22.77,6.26,45.32,6.01,49.65-8.2
+            c5.6-18.35-30.63-38.03-47.74-47.41c-3.66-2.01-5.26-0.75-2.91,1.93C186.46,167.69,201.84,192.14,180.13,206.51z"
+            />
+            <path
+              d="M176.32,208.88c0,0-28.67,18.03-79.28,18.03c-19.6,0-36.12-3.01-43.1-9.88c-7.35-7.24-11.34-19.41-11.34-30.61
+            c0-9.6,3.99-17.68,12.29-17.68C76.23,168.74,142.7,202.55,176.32,208.88z"
+            />
+            <g>
+              <path
+                d="M80.75,104.36c1.05-0.7,2.32-1.49,3.48-2.16l0.36-0.2l-0.36-0.04c-22.77-6.26-45.32-6.02-49.65,8.2
+              c-5.6,18.35,30.63,38.03,47.73,47.4c3.66,2.01,5.26,0.75,2.92-1.94C74.44,143.19,59.06,118.73,80.75,104.36z"
+              />
+              <path
+                d="M84.56,102c0,0,28.67-18.02,79.28-18.02c19.6,0,36.12,3.01,43.1,9.88c7.35,7.23,11.34,19.41,11.34,30.61
+              c0,9.6-3.99,17.66-12.29,17.66C184.65,142.13,118.18,108.33,84.56,102z"
+              />
+            </g>
+          </g>
+          <defs>
+            <clipPath id="clip0">
+              <rect width="201" height="45" fill="#000" />
+            </clipPath>
+          </defs>
+        </svg>
+        <div className="name-container">
+          <div className="logo-name">nullx</div>
+        </div>
+      </div>
+      <p>Welcome Viewers!</p>
+    </div>
+  );
+};
+
+export default App;
+@import url("https://fonts.googleapis.com/css2?family=Michroma&display=swap");
+
+
+
+.container {
+    font-family: "Michroma", sans-serif;
+    background-color: black;
+    color: #fff;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.loading-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    color: #191654;
+}
+
+#svg {
+    height: 350px;
+    width: 350px;
+    stroke: white;
+    fill-opacity: 0;
+    stroke-width: 3px;
+    stroke-dasharray: 4500;
+    animation: draw 8s ease;
+}
+
+@keyframes draw {
+    0% {
+        stroke-dashoffset: 4500;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+.name-container {
+    height: 30px;
+    overflow: hidden;
+}
+
+.logo-name {
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: 12px;
+    text-transform: uppercase;
+    margin-left: 20px;
+    font-weight: bolder;
+}
+
+const [language, setLanguage] = useState("fr");
+const [data, setData] = useState([]);
+const [loading, setLoading] = useState(true);
+
+
+const fetchData = async () => {
+  try {
+    const response = await axios.get("http://localhost:5000/api/fake-data");
+    setData(response.data);
+    console.log(response.data);
+    setLoading(false);
+  } catch (error) {
+    console.error("Erreur lors de la récupération des données :", error);
+    setLoading(false);
+  }
+}
+useEffect(() => {
+  const browserLanguage = navigator.language.slice(0, 2);
+  setLanguage(translations[browserLanguage] ? browserLanguage : "fr");
+  fetchData();
+}, []);
+
+if (loading) {
+  return <p>Chargement des données...</p>;
+}
+
+import { useState, useEffect } from "react";
+import axios from "axios";
+
+const translations = {
+  en: { welcome: "Welcome to our website!" },
+  fr: { welcome: "Bienvenue sur notre site Web !" },
+  es: { welcome: "¡Bienvenido a nuestro sitio web!" },
+};
+
+// Card.jsx
+import React from "react";
+import "./Card.css"; // Importer les styles CSS
+
+const Card = () => {
+  return (
+    <div className="card">
+      <div className="card-image">
+        <div className="card-icon">L7</div>
+      </div>
+      <div className="card-content">
+        <span className="tag">Learning</span>
+        <p className="publish-date">Published 21 Dec 2023</p>
+        <h2 className="card-title">HTML & CSS foundations</h2>
+        <p className="card-description">
+          These languages are the backbone of every website, defining structure, content, and presentation.
+        </p>
+        <div className="author-info">
+          <img
+            src="https://via.placeholder.com/40"
+            alt="Author"
+            className="author-image"
+          />
+          <span className="author-name">Greg Hooper</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Card;
+
+.card {
+  width: 300px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.card-image {
+  background-color: #f4c13f;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.card-icon {
+  font-size: 48px;
+  font-weight: bold;
+  color: #000;
+}
+
+.card-content {
+  padding: 16px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #ffc107;
+  color: #000;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.publish-date {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 12px;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.card-description {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.author-info {
+  display: flex;
+  align-items: center;
+}
+
+.author-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.author-name {
+  font-size: 14px;
+  font-weight: bold;
+}

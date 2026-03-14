@@ -1,0 +1,285 @@
+/* ===============================
+   ✅ Search Box Style
+=============================== */
+:root {
+  /* Light Theme Defaults */
+  --search-box-bg: rgba(255, 255, 255, 0.95);
+  --search-box-border: rgba(0, 0, 0, 0.08);
+  --search-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --search-box-hover-bg: rgba(245, 245, 245, 0.98);
+  --search-box-hover-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+  --search-box-change-bg: rgba(255, 255, 255, 0.85);
+  --search-box-results-bg: rgba(255, 255, 255, 0.92);
+  --search-input-text: #2d3748;
+  --search-icon-color: #4a5568;
+  --search-placeholder: #718096;
+  --search-divider: #e2e8f0;
+  --results-bg: rgba(255, 255, 255, 0.98);
+  --result-text: #2d3748;
+  --result-link: #2d3748;
+  --result-hover-bg: rgba(66, 153, 225, 0.12);
+  --result-image-border: #e2e8f0;
+  --scrollbar-track: #edf2f7;
+  --scrollbar-thumb: #cbd5e0;
+  --scrollbar-thumb-hover: #a0aec0;
+  --error-bg: rgba(254, 215, 215, 0.95);
+  --error-border: #f56565;
+  --error-text: #c53030;
+}
+
+[data-theme="dark"] {
+  /* Dark Theme - Harmonized with rgba(40, 40, 40, 0.9) */
+  --search-box-bg: rgba(40, 40, 40, 0.9);
+  --search-box-border: rgba(255, 255, 255, 0.08);
+  --search-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  --search-box-hover-bg: rgba(50, 50, 50, 0.95);
+  --search-box-hover-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  --search-box-change-bg: rgba(45, 45, 45, 0.95);
+  --search-box-results-bg: rgba(45, 45, 45, 0.95);
+  --search-input-text: #f7fafc;
+  --search-icon-color: #a0aec0;
+  --search-placeholder: #718096;
+  --search-divider: rgba(255, 255, 255, 0.1);
+  --results-bg: rgba(35, 35, 35, 0.98);
+  --result-text: #f7fafc;
+  --result-link: #f7fafc;
+  --result-hover-bg: #5e5e5e;
+  --result-image-border: rgba(255, 255, 255, 0.15);
+  --scrollbar-track: #2d3748;
+  --scrollbar-thumb: #4a5568;
+  --scrollbar-thumb-hover: #718096;
+  --error-bg: rgba(120, 27, 27, 0.9);
+  --error-border: #f56565;
+  --error-text: #fed7d7;
+}
+
+.search-box {
+  margin-top: -25px !important;
+   background: var(--search-box-bg);
+  box-shadow: var(--search-box-shadow);
+  border-radius: 25px;
+  padding: 0px 15px 0px 15px;
+  position: absolute;
+  left: 50%;
+  backdrop-filter: blur(8px); /* Smooth glass effect */
+  background: var(--search-box-bg, #fff);
+  transition: all 0.4s ease-in-out;
+  transform: translateX(-50%);
+  width: 40%;
+  border: 1px solid var(--search-box-border);
+}
+
+
+/* 🟢 Hover Effect */
+.search-box:hover {
+  background: var(--search-box-hover-bg);
+  box-shadow: var(--search-box-hover-shadow);
+}
+
+
+/* 🟢 Background Change Effect */
+.change-back {
+  background: var(--search-box-change-bg);
+}
+
+/* Results Display Effect */
+.search-box.showing-results:hover {
+background: var(--search-box-results-bg);
+  box-shadow: var(--search-box-shadow);
+}
+
+
+/* ===============================
+     📱 Responsive Design
+ =============================== */
+
+/* Max width 1080px */
+@media screen and (max-width: 1080px) {
+  .search-box {
+    left: 45%;
+    transition: all 0.5s ease;
+  }
+}
+
+/* Max width 768px (takes precedence) */
+@media screen and (max-width: 768px) {
+  .search-box {
+    width: 50%;
+    left: 45%;
+    transition: all 0.5s ease;
+  }
+}
+
+/* ===============================
+  🔍 Search Bar & Button
+=============================== */
+
+.row-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 20px;
+}
+
+.searchBarInput {
+  width: 100%;
+  background: transparent;
+  flex: 1;
+  border: 0;
+  outline: 0;
+  height: 50px;
+  border-radius: 25px;
+  padding: 0 20px;
+  font-size: 18px;
+  color: var(--search-input-text);
+}
+
+.searchBarButton {
+  background: transparent;
+  border: 0;
+  outline: 0;
+}
+
+.searchBarButton .search-icon {
+  width: 25px;
+  color: var(--search-icon-color);
+  font-size: 22px;
+  cursor: pointer;
+}
+
+::placeholder {
+  color: var(--search-placeholder);
+}
+
+.padd {
+  padding: 10px 0px 10px 0px;
+  border-top: 1px solid var(--search-divider);
+}
+
+/* ===============================
+     📌 Search Results
+     =============================== */
+
+.searchBarResult-box {
+  pointer-events: auto;
+  max-height: 500px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.searchBarResult-box ul {
+  max-height: 300px;
+}
+
+.searchBarResult-box ul li {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  list-style: none;
+  border-radius: 3px;
+  padding: 8px 15px;
+  cursor: pointer;
+  color: var(--result-text);
+}
+
+.searchBarResult-box ul li:hover,
+.searchBarResult-box ul li.Resultselected {
+  background: var(--result-hover-bg);
+  border-radius: 25px;
+  border-left: 4px solid transparent;
+}
+
+.searchBarResult-box ul li .result-link {
+  text-decoration: none;
+  color: var(--result-link);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.result-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--result-image-border);
+}
+
+/* Scrollbar Style */
+.searchBarResult-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.searchBarResult-box::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 5px;
+}
+
+.searchBarResult-box::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 5px;
+}
+
+.searchBarResult-box::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+/* ===============================
+     ❌ Error Messages
+     =============================== */
+
+.SearchBar-error-message {
+  position: fixed;
+  bottom: 0%;
+  right: 0%;
+  margin: 10px 20px;
+  padding: 10px;
+  height: fit-content;
+  width: 300px;
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
+  border-radius: 5px;
+  animation: fadeIn 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  color: var(--error-text);
+}
+
+.SearchBar-error-message.SearchBar-fade-out {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.SearchBar-error-message p {
+  width: 90%;
+  margin-top: 25px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.SearchBar-error-message .SearchBar-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: var(--error-text);
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

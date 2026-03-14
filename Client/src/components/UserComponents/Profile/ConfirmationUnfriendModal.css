@@ -1,0 +1,160 @@
+/* UnfollowConfirmationModal.css */
+.ConfirmationUnfriendModal-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  animation: unfollowFadeIn 0.3s ease-out forwards;
+}
+
+@keyframes unfollowFadeIn {
+  to { opacity: 1; }
+}
+
+.ConfirmationUnfriendModal-modal-container {
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  width: min(90%, 420px);
+  text-align: center;
+  position: relative;
+  transform: translateY(20px);
+  animation: unfollowSlideUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+
+@keyframes unfollowSlideUp {
+  to { transform: translateY(0); }
+}
+
+.ConfirmationUnfriendModal-modal-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, #ff6b6b, #ff8e8e, #ff6b6b);
+  background-size: 200% 200%;
+  animation: unfollowGradientFlow 3s ease infinite;
+}
+
+@keyframes unfollowGradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.ConfirmationUnfriendModal-modal-header h2 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.ConfirmationUnfriendModal-modal-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #ff6b6b, #ff8e8e);
+  border-radius: 3px;
+}
+
+.ConfirmationUnfriendModal-modal-body {
+  margin-bottom: 2rem;
+  color: #555;
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+.ConfirmationUnfriendModal-modal-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 1.5rem;
+  border: 4px solid white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.ConfirmationUnfriendModal-modal-image:hover {
+  transform: scale(1.05) rotate(5deg);
+}
+
+.ConfirmationUnfriendModal-modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.ConfirmationUnfriendModal-modal-actions button {
+  padding: 0.8rem 1.8rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.ConfirmationUnfriendModal-cancel-btn {
+  background-color: white;
+  color: #666;
+  border: 1px solid #e0e0e0;
+}
+
+.ConfirmationUnfriendModal-cancel-btn:hover {
+  background-color: #f5f5f5;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ConfirmationUnfriendModal-confirm-btn {
+  background: linear-gradient(135deg, #ff6b6b, #ff4d4d);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.ConfirmationUnfriendModal-confirm-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.ConfirmationUnfriendModal-confirm-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(255, 77, 77, 0.3);
+}
+
+.ConfirmationUnfriendModal-confirm-btn:hover::before {
+  left: 100%;
+}

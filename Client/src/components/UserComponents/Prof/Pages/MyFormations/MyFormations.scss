@@ -1,0 +1,135 @@
+// MyFormations.scss
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+
+:root {
+  /* Base Colors */
+  --primary-color: #4361ee;
+  --primary-hover: #3a56d4;
+  --text-color: #2b2d42;
+  --light-gray: #f8f9fa;
+  --border-color: #e9ecef;
+  
+  /* Theme Variables - Light (Default) */
+  --bg-color: #ffffff;
+  --my-formations-card-bg: #ffffff;
+  --content-bg: #f8f9fa;
+  --title-color: #2b2d42;
+  --subtitle-color: #6c757d;
+  --cta-bg: #ffffff;
+  --cta-border: #e9ecef;
+  --cta-hover-bg: rgba(67, 97, 238, 0.05);
+  
+  /* Design Tokens */
+  --border-radius: 12px;
+  --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --transition: all 0.3s ease;
+}
+
+[data-theme="dark"] {
+  /* Dark Theme Overrides */
+  --bg-color: #121212;
+  --my-formations-card-bg: #1e1e1e;
+  --content-bg: #252525;
+  --title-color: #ffffff;
+  --subtitle-color: #b0b0b0;
+  --text-color: #e0e0e0;
+  --light-gray: #252525;
+  --border-color: #444;
+  --cta-bg: #2d2d2d;
+  --cta-border: #444;
+  --cta-hover-bg: rgba(67, 97, 238, 0.1);
+}
+.my-formations {
+  font-family: 'Inter', sans-serif;
+  background-color: #fff;
+  width: 100%;
+  min-height: 100%;
+  padding: 32px;
+  background-color: var(--my-formations-card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  color: var(--text-color);
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  &__title-container {
+    border-left: 4px solid var(--primary-color);
+    padding-left: 16px;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+    color: var(--title-color);
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    color: var(--subtitle-color);
+    margin: 4px 0 0;
+  }
+
+  &__cta {
+    background-color: var(--cta-bg);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+    border: 1px solid var(--cta-border);
+    padding: 8px 20px;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+
+    &:hover {
+      background-color: var(--cta-hover-bg);
+      border-color: var(--primary-color);
+    }
+
+    .icon {
+      font-size: 16px;
+    }
+  }
+
+  &__content {
+    background-color: var(--content-bg);
+    border-radius: var(--border-radius);
+    padding: 40px;
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .my-formations {
+    padding: 24px 16px;
+
+    &__header {
+      flex-direction: column;
+    }
+
+    &__create-btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    &__content {
+      padding: 40px 20px;
+    }
+  }
+}

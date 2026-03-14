@@ -1,0 +1,120 @@
+/* Light Theme Variables */
+:root {
+  --upload-container-bg: #ffffff;
+  --upload-container-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  --upload-title-color: #6c63ff;
+  --upload-subtitle-color: #444444;
+  --title-border-color: #cccccc;
+  --title-line-bg: #f8f8f8;
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
+  --upload-container-bg: #1e1e2e;
+  --upload-container-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  --upload-title-color: #7d76ff;
+  --upload-subtitle-color: #b0b0b0;
+  --title-border-color: #444444;
+  --title-line-bg: #252538;
+}
+
+.upload-container {
+  margin: 30px auto;
+  padding: 20px 20px 40px 20px;
+  max-width: 1400px;
+  background: var(--upload-container-bg);
+  border-radius: 10px;
+  box-shadow: var(--upload-container-shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.upload-title {
+  width: 600px;
+  margin: 40px 0 50px 0;
+}
+
+/* Title Style */
+.upload-title h1 {
+  text-align: center;
+  font-size: 50px;
+  text-transform: uppercase;
+  color: var(--upload-title-color);
+  letter-spacing: 1px;
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.upload-title h1 span {
+  margin-top: 5px;
+  font-size: 15px;
+  color: var(--upload-subtitle-color);
+  word-spacing: 1px;
+  font-weight: normal;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  grid-template-rows: 27px 0;
+  grid-gap: 20px;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.upload-title h1 span:after,
+.upload-title h1 span:before {
+  content: " ";
+  display: block;
+  border-bottom: 1px solid var(--title-border-color);
+  border-top: 1px solid var(--title-border-color);
+  height: 5px;
+  background-color: var(--title-line-bg);
+  transition: all 0.3s ease;
+}
+
+.content-container {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .content-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .upload-container {
+    padding: 15px;
+  }
+
+  .upload-title h1 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  .upload-title {
+    width: 100%;
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .upload-title h1 {
+    font-size: 26px;
+  }
+  
+  .upload-title h1 span {
+    font-size: 13px;
+    grid-gap: 10px;
+  }
+}

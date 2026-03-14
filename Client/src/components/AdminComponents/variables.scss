@@ -1,0 +1,27 @@
+$bg-dark: #1a2035;
+$highlight: #ec407a;
+$card-bg: #1e1e2f;
+
+
+// Modern color palette
+$bg-sidebar: #1a1d3a; // Rich dark blue base
+$text-light: #ffffff;
+$button-hover: #2f3359; // Slightly lighter than bg for hover states
+$accent-primary: #5b67f0; // Main accent color - vibrant indigo
+$accent-secondary: #ff6b8b; // Secondary accent - soft coral
+
+// For gradients & special effects
+$accent-gradient: linear-gradient(135deg, $accent-primary, #8a5bfc);
+$highlight-color: rgba(255, 255, 255, 0.85);
+$shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.16);
+$accent-color: #00bcd4;
+
+// Animation timings
+$transition-fast: 0.2s ease;
+$transition-normal: 0.3s ease;
+$transition-elastic: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+// Responsive breakpoints
+$breakpoint-mobile: 768px;
+$breakpoint-tablet: 1024px;
+$breakpoint-desktop: 1440px;

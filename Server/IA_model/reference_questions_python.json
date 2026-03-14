@@ -1,0 +1,50 @@
+[
+  {
+    "id": "python-definition",
+    "keywords": ["python", "langage", "programmation"],
+    "question": "Qu'est-ce que Python ?",
+    "acceptedAnswers": ["un langage de programmation", "langage de programmation"]
+  },
+  {
+    "id": "assignment-operator",
+    "keywords": ["variable", "affectation", "="],
+    "question": "Quel symbole sert a affecter une valeur a une variable en Python ?",
+    "acceptedAnswers": ["=", "signe ="]
+  },
+  {
+    "id": "dictionary",
+    "keywords": ["cle", "valeur", "dictionary"],
+    "question": "Quelle structure stocke des paires cle-valeur en Python ?",
+    "acceptedAnswers": ["dictionary", "dictionnaire"]
+  },
+  {
+    "id": "def-keyword",
+    "keywords": ["def", "fonction"],
+    "question": "Quel mot-cle permet de definir une fonction en Python ?",
+    "acceptedAnswers": ["def"]
+  },
+  {
+    "id": "call-function",
+    "keywords": ["parentheses", "appelle", "fonction"],
+    "question": "Comment execute-t-on une fonction en Python ?",
+    "acceptedAnswers": ["avec son nom suivi de parentheses", "nom suivi de parentheses"]
+  },
+  {
+    "id": "import-module",
+    "keywords": ["import", "module"],
+    "question": "Que fait l'instruction import en Python ?",
+    "acceptedAnswers": ["elle charge un module", "charge un module"]
+  },
+  {
+    "id": "open-file",
+    "keywords": ["open", "fichier"],
+    "question": "Quelle fonction permet d'ouvrir un fichier en Python ?",
+    "acceptedAnswers": ["open()", "open"]
+  },
+  {
+    "id": "comment-symbol",
+    "keywords": ["commentaire", "#"],
+    "question": "Quel symbole est utilise pour un commentaire sur une ligne en Python ?",
+    "acceptedAnswers": ["#"]
+  }
+]

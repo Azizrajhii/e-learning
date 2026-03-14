@@ -1,0 +1,253 @@
+/* Base Styles */
+.account-settings-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.account-settings-content {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Sidebar Styles */
+.account-settings-sidebar {
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.account-settings-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.account-settings-card h3 {
+  margin-top: 0;
+  font-size: 1.4rem;
+  color: #212529;
+}
+
+.account-settings-card p {
+  color: #6c757d;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+}
+
+/* Navigation */
+.account-settings-nav {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.account-settings-nav-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.8rem 1.5rem;
+  background: none;
+  border: none;
+  text-align: left;
+  color: #6c757d;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.account-settings-nav-item:hover {
+  color: #4361ee;
+  background: rgba(67, 97, 238, 0.05);
+}
+
+.account-settings-nav-icon {
+  margin-right: 0.8rem;
+  font-size: 1.1rem;
+}
+
+/* Form Styles */
+.account-settings-form {
+  flex: 1;
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.account-settings-form-section {
+  margin-bottom: 2rem;
+}
+
+.account-settings-form-section h2 {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #212529;
+}
+
+.account-settings-section-icon {
+  margin-right: 0.8rem;
+  color: #4361ee;
+}
+
+.account-settings-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.account-settings-form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #212529;
+}
+
+.account-settings-form-input {
+  color: black;
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.account-settings-form-input:focus {
+  outline: none;
+  border-color: #4361ee;
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+}
+
+.account-settings-input-hint {
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin-top: 0.5rem;
+}
+
+/* Face ID Section */
+.account-settings-faceid-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.account-settings-video {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+  background: #f8f9fa;
+}
+
+.account-settings-capture-button {
+  background: #4361ee;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  align-self: flex-start;
+}
+
+.account-settings-capture-button:hover {
+  background: #3f37c9;
+}
+
+/* Error Styles */
+.account-settings-server-error {
+  background: rgba(249, 65, 68, 0.1);
+  color: #f94144;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border-left: 3px solid #f94144;
+}
+
+/* Form Actions */
+.account-settings-form-actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.account-settings-save-button {
+  background: #4361ee;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.account-settings-save-button:hover {
+  background: #3f37c9;
+  transform: translateY(-2px);
+}
+
+.account-settings-save-button:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.account-settings-save-icon {
+  margin-right: 0.5rem;
+}
+
+/* Loading State */
+.account-settings-loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.account-settings-loading-spinner {
+  border: 5px solid #e9ecef;
+  border-top: 5px solid #4361ee;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .account-settings-content {
+    flex-direction: column;
+  }
+  
+  .account-settings-sidebar {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .account-settings-form {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .account-settings-container {
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,176 @@
+/* General Container */
+.container {
+    width: 640px;
+    margin: auto;
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 10px;
+    padding: 40px 50px;
+    background: #f4f6f9;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Header Styling */
+.container h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #553f9a;
+    text-align: center;
+}
+
+.container h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+}
+
+/* Divider */
+.container hr {
+    height: 2px;
+    border: none;
+    background: #707070;
+    margin: 20px 0;
+}
+
+/* Options List */
+.container ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.container ul li {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    padding-left: 20px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #555;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect for options */
+.container ul li:hover {
+    background-color: #f1f1f1;
+    transform: scale(1.03);
+}
+
+/* Styling for selected option */
+.selected {
+    background-color: #4caf50;
+    color: #fff;
+    transform: scale(1.05);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Incorrect answer style */
+.incorrect {
+    background-color: #f44336;
+    color: #fff;
+    transform: scale(1.05);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Button Styling */
+.container button {
+    margin: auto;
+    width: 250px;
+    height: 65px;
+    background-color: #553f9a;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    outline: none;
+}
+
+/* Hover effect for button */
+.container button:hover {
+    background-color: #402b7f;
+    transform: scale(1.05);
+}
+
+/* Progress Indicator */
+.container .index {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: #777;
+}
+
+/* Add smooth transitions to the whole container */
+.container {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Timer Styling */
+.timer {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background: conic-gradient(
+        #4caf50 0deg,
+        #ff9800 180deg,
+        #f44336 360deg
+    );
+    position: relative;
+    margin: auto;
+    transition: background 0.5s linear;
+}
+
+/* Timer animation */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.timer.pulse {
+    animation: pulse 1s infinite;
+}
+
+/* Color transition based on remaining time */
+.timer.low {
+    background: conic-gradient(#f44336 0deg, #f44336 360deg);
+}
+
+.timer.medium {
+    background: conic-gradient(#ff9800 0deg, #ff9800 360deg);
+}
+
+.timer.high {
+    background: conic-gradient(#4caf50 0deg, #4caf50 360deg);
+}

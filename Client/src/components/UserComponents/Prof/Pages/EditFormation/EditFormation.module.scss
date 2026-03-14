@@ -1,0 +1,520 @@
+:root {
+  /* Light Theme (Default) */
+  --editpage-bg: #ffffff;
+  --editpage-text: #212529;
+  --editpage-card-bg: #ffffff;
+  --editpage-card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --editpage-border: #e9ecef;
+  --editpage-input-bg: #ffffff;
+  --editpage-input-border: #e0e0e0;
+  --editpage-input-hover: #6c63ff;
+  --editpage-input-focus-shadow: 0 4px 16px rgba(108, 99, 255, 0.3);
+  --editpage-dropzone-bg: #f8f9fa;
+  --editpage-dropzone-border: #dee2e6;
+  --editpage-dropzone-icon: #adb5bd;
+  --editpage-dropzone-text: #495057;
+  --editpage-link: #4361ee;
+  --editpage-button-primary: #4361ee;
+  --editpage-button-primary-hover: #3a0ca3;
+  --editpage-button-secondary: transparent;
+  --editpage-button-secondary-hover: #f8f9fa;
+  --editpage-button-secondary-border: #ced4da;
+  --editpage-select-option-hover: #f8f8ff;
+  --editpage-select-option-selected: #f0f0ff;
+}
+
+[data-theme="dark"] {
+  /* Dark Theme Overrides */
+  --editpage-bg: #121212;
+  --editpage-text: #f8f9fa;
+  --editpage-card-bg: #1e1e1e;
+  --editpage-card-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --editpage-border: #333;
+  --editpage-input-bg: #252525;
+  --editpage-input-border: #444;
+  --editpage-input-hover: #7d76ff;
+  --editpage-input-focus-shadow: 0 4px 16px rgba(125, 118, 255, 0.4);
+  --editpage-dropzone-bg: #252525;
+  --editpage-dropzone-border: #444;
+  --editpage-dropzone-icon: #666;
+  --editpage-dropzone-text: #b0b0b0;
+  --editpage-link: #5a75ff;
+  --editpage-button-primary: #5a75ff;
+  --editpage-button-primary-hover: #4a42d1;
+  --editpage-button-secondary: transparent;
+  --editpage-button-secondary-hover: #252525;
+  --editpage-button-secondary-border: #555;
+  --editpage-select-option-hover: #2a2a45;
+  --editpage-select-option-selected: #333350;
+}
+
+.editPage {
+  background-color: var(--editpage-bg);
+  color: var(--editpage-text);
+  border-radius: 20px;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 24px;
+
+  .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+    position: relative;
+
+    .backButton {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: none;
+      border: none;
+      color: var(--editpage-link);
+      font-weight: 500;
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background 0.2s;
+
+      &:hover {
+        background: rgba(var(--editpage-link-rgb), 0.1);
+      }
+    }
+
+    h1 {
+      margin: 0 auto;
+      color: var(--editpage-text);
+      font-size: 24px;
+      font-weight: 600;
+    }
+  }
+
+  .editForm {
+    background: var(--editpage-card-bg);
+    box-shadow: var(--editpage-card-shadow);
+    border-radius: 12px;
+    padding: 32px;
+  }
+
+  .formGrid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 32px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .imageSection {
+    .imageUpload {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .dropArea {
+      display: block;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    .uploadView {
+      width: 100%;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      border: 1px dashed var(--editpage-dropzone-border);
+      background: var(--editpage-dropzone-bg);
+      overflow: hidden;
+    }
+
+    .uploadedImage {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 16px;
+    }
+
+    .dropzoneContent {
+      color: var(--editpage-dropzone-icon);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .dropzoneIcon {
+      font-size: 48px;
+      color: var(--editpage-dropzone-text);
+      margin-bottom: 16px;
+    }
+
+    .dropzoneText {
+      margin: 0;
+      color: #495057;
+      font-size: 14px;
+    }
+
+    .browseLink {
+      color: var(--editpage-link);
+      font-weight: 500;
+    }
+
+    .dropzoneHint {
+      margin: 8px 0 0;
+      color: #adb5bd;
+      font-size: 12px;
+    }
+
+    .fileInput {
+      display: none;
+    }
+  }
+
+  .formSection {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: var(--editpage-text);
+
+
+    label {
+      margin-left: 5px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    input,
+    textarea,
+    select,
+    option {
+      width: 100%;
+      padding: 12px 16px 12px 16px;
+      border: 2px solid var(--editpage-input-border);
+      border-radius: 12px;
+      background-color: var(--editpage-input-bg);
+      color: var(--editpage-text);
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 16px;
+
+      &:hover {
+        border-color: var(--editpage-input-hover);
+        box-shadow: 0 4px 12px rgba(var(--editpage-input-hover-rgb), 0.2);
+      }
+
+      &:focus {
+        border-color: var(--editpage-input-hover);
+        box-shadow: var(--editpage-input-focus-shadow);
+        outline: none;
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+  }
+
+  .formRow {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .formActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--editpage-border);
+
+    button {
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cancelButton {
+      background: none;
+      border: 1px solid var(--editpage-button-secondary-border);
+      color: var(--editpage-text);
+
+      &:hover {
+        background: var(--editpage-button-secondary-hover);
+      }
+    }
+
+    .saveButton {
+      background: var(--editpage-button-primary);
+      color: white;
+      border: none;
+
+      &:hover {
+        background: var(--editpage-button-primary-hover);
+      }
+    }
+  }
+}
+
+.customSelect {
+  position: relative;
+  width: 100%;
+  background-color: var(--editpage-input-bg);
+  border: 2px solid var(--editpage-input-border);
+  border-radius: 12px;
+  font-size: 14px;
+  color: var(--editpage-text);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.customSelect:hover {
+  border-color: var(--editpage-input-hover);
+  box-shadow: 0 4px 12px rgba(var(--editpage-input-hover-rgb), 0.1);
+}
+
+.customSelect.open {
+  border-color: var(--editpage-input-hover);
+  box-shadow: 0 4px 16px rgba(var(--editpage-input-hover-rgb), 0.2);
+}
+
+.selectedOption {
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.selectArrow {
+  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.customSelect.open .selectArrow {
+  transform: rotate(180deg);
+}
+
+.optionsList {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 100%;
+  background: var(--editpage-card-bg);
+  border: 1px solid var(--editpage-input-border);
+  border-radius: 12px;
+  z-index: 100;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  box-shadow: var(--editpage-card-shadow);
+}
+
+.optionsList.show {
+  max-height: 300px;
+  opacity: 1;
+  transform: translateY(0);
+  overflow-y: auto;
+}
+
+.optionItem {
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.optionItem:hover {
+  background-color: var(--editpage-select-option-hover);
+  color: var(--editpage-input-hover);
+}
+
+.optionItem.selected {
+  background-color: var(--editpage-select-option-selected);
+  color: var(--editpage-input-hover);
+  font-weight: 500;
+}
+
+.checkmark {
+  color: var(--editpage-input-hover);
+  display: flex;
+  align-items: center;
+}
+
+
+.customSelect:focus-visible {
+  outline: 2px solid var(--editpage-input-hover);
+  outline-offset: 2px;
+}
+
+.optionItem:focus-visible {
+  outline: 2px solid var(--editpage-input-hover);
+  outline-offset: -2px;
+  background-color: var(--editpage-select-option-hover);
+  border-radius: 12px;
+}
+
+.successModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.3s ease-out;
+
+  &__content {
+    background: var(--editpage-card-bg);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    max-width: 620px;
+    width: 90%;
+    box-shadow: var(--editpage-card-shadow);
+    border: 1px solid var(--editpage-border);
+    transform: scale(0.95);
+    animation: scaleUp 0.3s ease-out forwards;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #4361ee, #3a0ca3);
+    }
+  }
+
+  &__icon {
+    color: #4361ee;
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    margin: 0 auto;
+    filter: drop-shadow(0 4px 8px rgba(67, 97, 238, 0.3));
+    animation: bounce 0.6s ease;
+  }
+
+  &__title {
+    margin: 1rem 0;
+    color: var(--editpage-text);
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  &__message {
+    color: var(--editpage-dropzone-text);
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  &__button {
+    margin-top: 20px;
+    background: var(--editpage-button-primary);
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-width: 120px;
+    box-shadow: 0 4px 12px rgba(67, 97, 238, 0.25);
+
+    &:hover {
+      background: var(--editpage-button-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(67, 97, 238, 0.3);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes scaleUp {
+    from { transform: scale(0.95); }
+    to { transform: scale(1); }
+  }
+
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-20px); }
+    60% { transform: translateY(-10px); }
+  }
+}
+
+// Dark theme specific adjustments
+[data-theme="dark"] {
+  .successModal {
+    &__content {
+      border: 1px solid var(--editpage-input-border);
+    }
+    
+    &__icon {
+      filter: drop-shadow(0 4px 8px rgba(90, 117, 255, 0.4));
+    }
+    
+    &__button {
+      box-shadow: 0 4px 12px rgba(90, 117, 255, 0.3);
+      
+      &:hover {
+        box-shadow: 0 6px 16px rgba(90, 117, 255, 0.4);
+      }
+    }
+  }
+}

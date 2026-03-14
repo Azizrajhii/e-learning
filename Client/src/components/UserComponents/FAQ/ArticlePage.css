@@ -1,0 +1,266 @@
+:root {
+  /* Light Theme (Default) */
+  --faq-article-page--bg-color: transparent;
+  --faq-page-line--color: #333;
+  --faq-comment-input--bg: #f5f5f5;
+  --faq-comment-input--hover-bg: #fff;
+  --faq-comment-input--focus-bg: #fff;
+  --faq-comment-input--border: transparent;
+  --faq-comment-input--hover-border: #007bff;
+  --faq-comment-input--shadow: rgba(0, 123, 255, 0.3);
+  --faq-post-btn--color: #007bff;
+  --faq-post-btn--hover-bg: #0057b3c0;
+  --faq-post-btn--hover-color: white;
+  --faq-comment-content--bg: #f4f4f4;
+  --faq-mention-input--bg: #f0f2f5;
+  --faq-mention-input--hover-bg: #e4e6e9;
+  --faq-mention-input--focus-bg: white;
+  --faq-mention-input--border: #dddfe2;
+  --faq-mention-input--focus-border: #1877f2;
+  --faq-mention-input--focus-shadow: #e7f3ff;
+  --faq-mention-suggestions--bg: white;
+  --faq-mention-suggestions--border: #dddfe2;
+  --faq-mention-suggestions--shadow: rgba(0, 0, 0, 0.1);
+  --faq-mention-suggestion--hover-bg: #f0f2f5;
+  --faq-mention-suggestion-text--color: #050505;
+  --faq-mention--color: #1877f2;
+}
+
+[data-theme="dark"] {
+  /* Dark Theme Overrides */
+  --faq-article-page--bg-color: #121212;
+  --faq-page-line--color: #555;
+  --faq-comment-input--bg: #212121;
+  --faq-comment-input--hover-bg: #1e1e1e;
+  --faq-comment-input--focus-bg: #1e1e1e;
+  --faq-comment-input--border: transparent;
+  --faq-comment-input--hover-border: #3a7bff;
+  --faq-comment-input--shadow: rgba(58, 123, 255, 0.3);
+  --faq-post-btn--color: #3a7bff;
+  --faq-post-btn--hover-bg: #1a5bb3c0;
+  --faq-post-btn--hover-color: white;
+  --faq-comment-content--bg: #2D2D2D;
+  --faq-mention-input--bg: #2d2d2d;
+  --faq-mention-input--hover-bg: #3a3a3a;
+  --faq-mention-input--focus-bg: #1e1e1e;
+  --faq-mention-input--border: #444;
+  --faq-mention-input--focus-border: #4d8aff;
+  --faq-mention-input--focus-shadow: rgba(77, 138, 255, 0.1);
+  --faq-mention-suggestions--bg: #1e1e1e;
+  --faq-mention-suggestions--border: #444;
+  --faq-mention-suggestions--shadow: rgba(0, 0, 0, 0.3);
+  --faq-mention-suggestion--hover-bg: #2d2d2d;
+  --faq-mention-suggestion-text--color: #f0f0f0;
+  --faq-mention--color: #4d8aff;
+}
+
+.faq-article-page {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0px;
+}
+
+.faq-article-page .faq-article-card {
+  flex: 1;
+  height: fit-content;
+}
+.faq-page-line-between-article-and-post {
+  background: var(--faq-page-line--color);
+  width: 85%;
+  height: 1px;
+  margin: 20px auto;
+}
+
+.faq-write-comment {
+  display: flex;
+  align-items: center;
+  border-radius: 25px;
+  padding: 10px;
+  width: 95%;
+  margin: 10px auto;
+  gap: 10px;
+}
+
+.faq-comment-input {
+  flex-grow: 1;
+  background: var(--faq-comment-input--bg);
+  border: 2px solid var(--faq-comment-input--border);
+  outline: none;
+  padding: 12px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.faq-comment-input:hover {
+  background: var(--faq-comment-input--hover-bg);
+  border: 2px solid var(--faq-comment-input--hover-border);
+  box-shadow: 0px 0px 8px var(--faq-comment-input--shadow);
+}
+.faq-comment-input:focus {
+  background: var(--faq-comment-input--focus-bg);
+  border: 2px solid var(--faq-comment-input--hover-border);
+  box-shadow: 0px 0px 8px var(--faq-comment-input--shadow);
+}
+
+.faq-post-btn {
+  background: transparent;
+  color: var(--faq-post-btn--color);
+  padding: 10px 13px 10px 10px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.faq-post-btn:hover {
+  background: var(--faq-post-btn--hover-bg);
+  color: var(--faq-post-btn--hover-color);
+}
+
+.faq-comment {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 70%;
+  width: fit-content;
+  overflow: hidden;
+  color: var(--faq-text--user-color);
+}
+
+.faq-comment-container-general {
+  max-width: 70%;
+}
+
+.faq-comment-container {
+  max-width: 100%;
+  word-break: break-word;
+}
+
+.faq-comment-content {
+  background: var(--faq-comment-content--bg);
+  border-radius: 12px;
+  padding: 10px;
+  max-width: 100%;
+  min-width: 200px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.faq-comment-actions {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 5px 0 5px;
+}
+
+.faq-comment-actions-time-and-reply {
+  display: flex;
+  gap: 15px;
+}
+
+.faq-comment-actions-likes-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.faq-comments {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Comment Input Styles */
+.mention-input-container {
+  position: relative;
+  flex-grow: 1;
+}
+
+.mention-input {
+  min-width: 400px;
+  padding: 12px 16px;
+  border-radius: 20px;
+  font-size: 15px;
+  transition: all 0.2s;
+  background: var(--faq-mention-input--bg);
+  border: 1px solid var(--faq-mention-input--border);
+  color: var(--faq-text--user-color);
+}
+
+.mention-input:hover {
+  background: var(--faq-mention-input--hover-bg);
+}
+
+.mention-input:focus {
+  outline: none;
+  background: var(--faq-mention-input--focus-bg);
+  border-color: var(--faq-mention-input--focus-border);
+  box-shadow: 0 0 0 2px var(--faq-mention-input--focus-shadow);
+}
+
+/* Mention Suggestions Dropdown */
+.mention-suggestions {
+  background: var(--faq-mention-suggestions--bg);
+  border: 1px solid var(--faq-mention-suggestions--border);
+  box-shadow: 0 4px 12px var(--faq-mention-suggestions--shadow);
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  border-radius: 8px;
+  z-index: 100;
+  margin-bottom: 5px;
+}
+
+.mention-suggestion {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  gap: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.mention-suggestion:hover {
+  background: var(--faq-mention-suggestion--hover-bg);
+}
+
+.mention-suggestion-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.mention-suggestion span {
+  font-size: 14px;
+  color: var(--faq-mention-suggestion-text--color);
+}
+
+/* Mention Styling in Text */
+.mention {
+  color: var(--faq-mention--color);
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.mention:hover {
+  text-decoration: underline;
+}
+
+.faq-comment-button-reply {
+  background-color: transparent;
+  font-weight: 500;
+}
+
+.faq-comment-button-reply:hover {
+  text-decoration: underline;
+  font-weight: 700;
+}
+

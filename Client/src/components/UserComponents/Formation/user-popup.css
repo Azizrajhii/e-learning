@@ -1,0 +1,74 @@
+.custom-popup-container {
+  position: fixed; /* Utiliser fixed pour que la popup reste en place lors du défilement */
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  width: 350px;
+  height: 200px;
+  border: 0.1px rgb(163, 150, 150) solid;
+  text-align: center;
+  z-index: 1000;
+  color: black;
+  overflow: hidden;
+  animation: custom-popup-fadeIn 0.3s ease-in-out;
+  transform: translateY(0); /* Pas besoin de centrer verticalement */
+}
+
+@keyframes custom-popup-fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.custom-popup-content {
+  position: relative;
+  z-index: 2;
+}
+
+.custom-popup-content-pdp-name {
+  display: flex;
+  gap: 20px;
+}
+
+.custom-popup-profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 4px solid black;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.custom-popup-name {
+  margin: 15px 0;
+  font-size: 22px;
+  font-weight: bold;
+  color: black;
+}
+
+.custom-popup-content-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.custom-popup-content-button {
+  border: none;
+  background: none;
+  font-size: 24px;
+  color: #8bc34a;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.custom-popup-content-button:hover {
+  color: #4CAF50;
+  transform: rotate(15deg) scale(1.1);
+}

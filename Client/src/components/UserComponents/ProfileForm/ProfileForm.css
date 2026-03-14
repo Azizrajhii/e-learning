@@ -1,0 +1,483 @@
+/* ===== Base Variables & Theme Setup ===== */
+:root {
+  /* Light theme colors */
+  --profile-bg-color: #f5f7fa;
+  --profile-container-bg: #ffffff;
+  --profile-text-color: #2d3748;
+  --profile-input-bg: #f8fafc;
+  --profile-input-border: #e2e8f0;
+  --profile-input-text: #4a5568;
+  --profile-primary-btn: #4299e1;
+  --profile-primary-btn-hover: #3182ce;
+  --profile-secondary-btn-bg: #ffffff;
+  --profile-secondary-btn-border: #e2e8f0;
+  --profile-secondary-btn-text: #2d3748;
+  --profile-link-color: #4299e1;
+  --profile-link-hover: #3182ce;
+  --profile-error-color: #e53e3e;
+  --profile-separator-color: #e2e8f0;
+  --profile-remember-text: #4a5568;
+  --profile-welcome-text: #ffffff;
+  --profile-decor-primary: #00579e;
+  --profile-decor-secondary: #0081e9;
+  --profile-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+  /* Dark theme colors */
+  --profile-bg-color: #1a202c;
+  --profile-container-bg: #2d3748;
+  --profile-text-color: #f7fafc;
+  --profile-input-bg: #4a5568;
+  --profile-input-border: #4a5568;
+  --profile-input-text: #f7fafc;
+  --profile-primary-btn: #4299e1;
+  --profile-primary-btn-hover: #3182ce;
+  --profile-secondary-btn-bg: #4a5568;
+  --profile-secondary-btn-border: #718096;
+  --profile-secondary-btn-text: #f7fafc;
+  --profile-link-color: #90cdf4;
+  --profile-link-hover: #63b3ed;
+  --profile-error-color: #fc8181;
+  --profile-separator-color: #718096;
+  --profile-remember-text: #cbd5e0;
+  --profile-welcome-text: #f7fafc;
+  --profile-decor-primary: #1e3a8a;
+  --profile-decor-secondary: #1e40af;
+  --profile-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== Base Styles ===== */
+.profile-page-wrapper {
+  color: var(--profile-input-text);
+  background: var(--profile-bg-color);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  transition: background-color 0.3s ease;
+}
+
+.profile-content-container {
+  position: relative;
+  width: 100%;
+  max-width: 1500px;
+  height: 700px;
+  background: var(--profile-container-bg);
+  border-radius: 20px;
+  box-shadow: var(--profile-shadow);
+  overflow: hidden;
+  display: flex;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ===== Decorative Elements ===== */
+.profile-decorative-elements {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.profile-decor-circle-large {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--profile-decor-primary), var(--profile-decor-secondary));
+  top: -400px;
+  left: -200px;
+  opacity: 0.9;
+  filter: blur(20px);
+}
+
+.profile-decor-circle-medium {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: var(--profile-decor-secondary);
+  bottom: -250px;
+  left: -150px;
+  opacity: 0.8;
+  filter: blur(10px);
+}
+
+.profile-decor-circle-small {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: var(--profile-decor-primary);
+  top: 50%;
+  left: 30%;
+  opacity: 0.6;
+}
+
+.profile-decor-circle-right {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: var(--profile-decor-primary);
+  right: -250px;
+  bottom: -250px;
+  opacity: 0.5;
+}
+
+/* ===== Welcome Section ===== */
+.profile-welcome-section {
+  position: relative;
+  width: 50%;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--profile-welcome-text);
+  z-index: 1;
+}
+
+.profile-welcome-image {
+  width: 100px;
+  position: absolute;
+  top: 100px;
+}
+
+.profile-welcome-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.profile-welcome-subtitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.profile-welcome-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* ===== Form Container ===== */
+.profile-form-container {
+  z-index: 1;
+  width: 60%;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.profile-form-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--profile-text-color);
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ===== Form Inputs ===== */
+.profile-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.profile-input-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--profile-input-text);
+  transition: color 0.3s ease;
+}
+
+.profile-input-field {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--profile-input-border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  background-color: var(--profile-input-bg);
+  color: var(--profile-input-text);
+}
+
+.profile-input-field:focus {
+  outline: none;
+  border-color: var(--profile-primary-btn);
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
+.profile-textarea-field {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--profile-input-border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  background-color: var(--profile-input-bg);
+  color: var(--profile-input-text);
+  resize: vertical;
+  min-height: 100px;
+}
+
+.profile-textarea-field:focus {
+  outline: none;
+  border-color: var(--profile-primary-btn);
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
+.profile-error-message {
+  font-size: 0.8rem;
+  color: var(--profile-error-color);
+  margin-top: 0.25rem;
+  height: 1rem;
+  transition: color 0.3s ease;
+}
+
+/* ===== Buttons ===== */
+.profile-action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+
+.profile-primary-button {
+  padding: 1rem;
+  background-color: var(--profile-primary-btn);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.profile-primary-button:hover {
+  background-color: var(--profile-primary-btn-hover);
+  transform: translateY(-1px);
+}
+
+.profile-primary-button:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ===== Loading & Error States ===== */
+.profile-loading,
+.profile-error {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 1.5rem;
+  z-index: 1000;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 1024px) {
+  .profile-content-container {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .profile-welcome-section,
+  .profile-form-container {
+    width: 100%;
+    padding: 2rem;
+  }
+  
+  .profile-welcome-section {
+    padding-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .profile-form-container {
+    padding-top: 1rem;
+  }
+
+  .profile-welcome-title {
+    font-size: 2.5rem;
+  }
+
+  .profile-welcome-subtitle {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-page-wrapper {
+    padding: 1rem;
+  }
+
+  .profile-content-container {
+    border-radius: 15px;
+  }
+
+  .profile-form-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-welcome-title {
+    font-size: 2rem;
+  }
+
+  .profile-welcome-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .profile-form {
+    gap: 1rem;
+  }
+
+  .profile-input-field,
+  .profile-textarea-field {
+    padding: 0.75rem 1rem;
+  }
+}
+
+.profile-form-box {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.profile-form-box .profile-input-group {
+  flex: 1;
+  min-width: 0; /* Prevents flex items from overflowing */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .profile-form-box {
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Custom Select Styles */
+.profile-form-custom-select {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+}
+
+.profile-form-custom-select-header {
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--profile-input-border);
+  border-radius: 8px;
+  background-color: var(--profile-input-bg);
+  color: var(--profile-input-text);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.profile-form-custom-select-header:hover {
+  border-color: var(--profile-primary-btn);
+}
+
+.profile-form-custom-select-arrow {
+  transition: transform 0.3s ease;
+}
+
+.profile-form-custom-select-arrow.profile-form-open {
+  transform: rotate(180deg);
+}
+
+.profile-form-custom-select-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--profile-input-bg);
+  border: 1px solid var(--profile-input-border);
+  border-radius: 8px;
+  margin-top: 0.3rem;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.profile-form-custom-select-option {
+  padding: 0.8rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: all 0.2s ease;
+}
+
+.profile-form-custom-select-option:hover {
+  background-color: var(--profile-primary-btn);
+  color: white;
+}
+
+.profile-form-custom-select-option.profile-form-selected {
+  background-color: rgba(66, 153, 225, 0.1);
+  color: var(--profile-primary-btn);
+}
+
+.profile-form-gender-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-form-gender-icon {
+  font-size: 1rem;
+}
+
+/* Placeholder Styles */
+.profile-input-field::placeholder,
+.profile-textarea-field::placeholder,
+.profile-form-placeholder {
+  color: var(--profile-input-text);
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+/* Dark theme placeholder adjustment */
+[data-theme="dark"] .profile-input-field::placeholder,
+[data-theme="dark"] .profile-textarea-field::placeholder,
+[data-theme="dark"] .profile-form-placeholder {
+  opacity: 0.5;
+}
+
+/* Custom select placeholder */
+.profile-form-placeholder {
+  color: var(--profile-input-text);
+  opacity: 0.7;
+}
+
+.profile-form-error .profile-form-custom-select-header {
+  border-color: var(--profile-error-color);
+}
+

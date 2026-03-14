@@ -1,0 +1,161 @@
+.exam-card {
+  --primary-color: #4361ee;
+  --primary-light: #e0e7ff;
+  --accent-color: #3f37c9;
+  --text-color: #2b2d42;
+  --text-light: #8d99ae;
+  
+  width: 100%;
+  background: var(--exam-bg);
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: var(--exam-shadow);
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  transition: all 0.3s ease;
+}
+
+.exam-content {
+  position: relative;
+  z-index: 2;
+}
+
+.exam-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.exam-badge {
+  background: var(--exam-badge-bg);
+  color: var(--exam-badge-text);
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.exam-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--exam-text-primary);
+  margin-bottom: 12px;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+.exam-description {
+  font-size: 16px;
+  color: var(--exam-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  transition: color 0.3s ease;
+}
+
+.exam-cta {
+  background: var(--exam-primary);
+  color: var(--exam-cta-text);
+  border: none;
+  border-radius: 12px;
+  margin-top: 10px;
+  padding: 14px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--exam-cta-shadow);
+}
+
+.exam-cta:hover {
+  background: var(--exam-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--exam-cta-hover-shadow);
+}
+
+.exam-decoration {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--exam-decoration-bg);
+  opacity: 0.6;
+  transition: background 0.3s ease;
+}
+
+.circle:nth-child(1) {
+  width: 120px;
+  height: 120px;
+  top: -40px;
+  right: -40px;
+}
+
+.circle:nth-child(2) {
+  width: 80px;
+  height: 80px;
+  top: 80px;
+  right: -20px;
+}
+
+.circle:nth-child(3) {
+  width: 40px;
+  height: 40px;
+  top: 160px;
+  right: 0;
+}
+
+.Exam-button-icon {
+  width: 20px;
+  height: 20px;
+  transform: scaleX(-1);
+  filter: var(--exam-icon-filter);
+}
+
+/* Light Theme Variables */
+:root {
+  --exam-bg: #ffffff;
+  --exam-text-primary: #2b2d42;
+  --exam-text-secondary: #8d99ae;
+  --exam-badge-bg: #e0e7ff;
+  --exam-badge-text: #4361ee;
+  --exam-primary: #4361ee;
+  --exam-primary-hover: #3f37c9;
+  --exam-cta-text: #ffffff;
+  --exam-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --exam-cta-shadow: 0 4px 12px rgba(67, 97, 238, 0.3);
+  --exam-cta-hover-shadow: 0 6px 16px rgba(67, 97, 238, 0.4);
+  --exam-decoration-bg: #e0e7ff;
+  --exam-icon-filter: none;
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
+  --exam-bg: #1e1e2e;
+  --exam-text-primary: #f8f9fa;
+  --exam-text-secondary: #adb5bd;
+  --exam-badge-bg: rgba(67, 97, 238, 0.2);
+  --exam-badge-text: #a5b4fc;
+  --exam-primary: #4361ee;
+  --exam-primary-hover: #5a75ff;
+  --exam-cta-text: #ffffff;
+  --exam-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  --exam-cta-shadow: 0 4px 12px rgba(67, 97, 238, 0.3);
+  --exam-cta-hover-shadow: 0 6px 16px rgba(90, 117, 255, 0.4);
+  --exam-decoration-bg: rgba(67, 97, 238, 0.15);
+  --exam-icon-filter: brightness(0) invert(1);
+}

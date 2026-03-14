@@ -1,0 +1,232 @@
+.ViewProgress-projects {
+  width: 100%;
+  height: 100%;
+  background-color: #0d1b2a;
+  padding: 2rem;
+  border-radius: 16px;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+
+  .ViewProgress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    h2 {
+      font-size: 1.8rem;
+    }
+  }
+
+  .ViewProgress-table {
+    .ViewProgress-link {
+      color: inherit;
+      text-decoration: none;
+      display: block;
+    }
+
+    .ViewProgress-tableHeader {
+      display: grid;
+      grid-template-columns: 3fr 3fr 3fr 1fr;
+      padding: 1rem 1rem;
+      border-bottom: 1px solid #1c2541;
+      color: #90caf9;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    .ViewProgress-row {
+      display: grid;
+      grid-template-columns: 3fr 3fr 3fr 1fr;
+      align-items: center;
+      padding: 1rem 1rem;
+      border-bottom: 1px solid #1c2541;
+      transition: background 0.2s;
+
+      &:hover {
+        background-color: #162447;
+      }
+
+      .ViewProgress-company {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+
+        img {
+          width: 32px;
+          height: 32px;
+          border-radius: 8px;
+          object-fit: cover;
+        }
+      }
+
+      .ViewProgress-members {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        .ViewProgress-member {
+          position: relative;
+          margin-left: -8px;
+
+          &:hover {
+            transform: scale(1.2);
+            z-index: 10;
+            border-color: #fff; // optionnel pour mettre une bordure bleue au hover
+          }
+
+          img {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 2px solid #0d1b2a;
+            object-fit: cover;
+            margin-left: -8px;
+            transition: transform 0.3s ease, z-index 0.3s ease;
+
+            &:first-child {
+              margin-left: 0;
+            }
+
+            &:hover {
+              border-color: #fff; // optionnel pour mettre une bordure bleue au hover
+            }
+          }
+
+          .ViewProgress-avatarWrapper {
+            position: relative;
+
+            .ViewProgress-tooltip {
+              display: none;
+              position: absolute;
+              bottom: 130%;
+              left: 50%;
+              transform: translateX(-50%);
+              background-color: rgba(0, 0, 0, 0.644);
+              color: #fff;
+              padding: 6px 10px;
+              border-radius: 5px;
+              font-size: 13px;
+              white-space: nowrap;
+              z-index: 999;
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+              &::before {
+                content: '';
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                border-width: 6px;
+                border-style: solid;
+                border-color: rgba(0, 0, 0, 0.644) transparent transparent transparent;
+              }
+            }
+
+            &:hover .ViewProgress-tooltip {
+              display: block;
+            }
+          }
+        }
+
+        .ViewProgress-number-more {
+          /*
+            width: 28px;
+          height: 28px;
+          background-color: #555;
+          align-items: center;
+          justify-content: center;
+          display: flex;
+          border-radius: 50%;
+          position: absolute;
+          right: 0;
+
+          
+          */
+          margin-left: 0.25rem;
+          cursor: pointer;
+
+          &:hover{
+            text-decoration: underline;
+
+          }
+        }
+      }
+
+      .ViewProgress-budget {
+        font-weight: bold;
+      }
+
+      .ViewProgress-progress {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+
+        .ViewProgress-progressBar {
+          width: 100%;
+          height: 8px;
+          background-color: #1c2541;
+          border-radius: 8px;
+          overflow: hidden;
+
+          .ViewProgress-progressFill {
+            height: 100%;
+            border-radius: 8px;
+            transition: width 0.4s ease;
+          }
+        }
+
+        .ViewProgress-progressText {
+          font-size: 0.82rem;
+          color: #dbe8ff;
+          min-width: 38px;
+          text-align: right;
+        }
+      }
+
+      .ViewProgress-Status {
+        margin: 0 auto;
+
+        .ViewProgress-statusBadge {
+          display: inline-block;
+          padding: 0.25rem 0.65rem;
+          border-radius: 999px;
+          font-size: 0.78rem;
+          font-weight: 600;
+          text-transform: capitalize;
+          border: 1px solid transparent;
+        }
+
+        .ViewProgress-status-ongoing {
+          background: rgba(29, 161, 242, 0.16);
+          border-color: rgba(29, 161, 242, 0.35);
+          color: #9dd9ff;
+        }
+
+        .ViewProgress-status-draft {
+          background: rgba(255, 193, 7, 0.16);
+          border-color: rgba(255, 193, 7, 0.35);
+          color: #ffe08a;
+        }
+
+        .ViewProgress-status-upcoming {
+          background: rgba(147, 112, 219, 0.16);
+          border-color: rgba(147, 112, 219, 0.35);
+          color: #d6c3ff;
+        }
+
+        .ViewProgress-status-completed {
+          background: rgba(76, 175, 80, 0.16);
+          border-color: rgba(76, 175, 80, 0.35);
+          color: #9ae29d;
+        }
+
+        .ViewProgress-status-cancelled {
+          background: rgba(244, 67, 54, 0.16);
+          border-color: rgba(244, 67, 54, 0.35);
+          color: #ffaaa3;
+        }
+      }
+    }
+  }
+}

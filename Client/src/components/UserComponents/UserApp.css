@@ -1,0 +1,218 @@
+:root {
+  --light-background: linear-gradient(-45deg, #f5f7fa, #babcc1);
+  --dark-background: #5c5c5c;
+  --light-text-color: #333;
+  --dark-text-color: #ecf0f1;
+}
+
+[data-theme="light"] {
+  --background: var(--light-background);
+  --text-color: var(--light-text-color);
+}
+
+[data-theme="dark"] {
+  --background: var(--dark-background);
+  --text-color: var(--dark-text-color);
+}
+
+
+/* Conteneur principal */
+.app-container {
+  position: relative;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background: var(--background);
+  flex-direction: column;
+  overflow: hidden;
+  animation: morphingGradient 60s ease infinite;
+  background-size: 400% 400%; /* Permet au gradient de se déplacer */
+}
+
+
+/* Animation du mouvement du gradient */
+@keyframes morphingGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+/* Barre de navigation */
+.appbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+
+  /* S'assure que l'AppBar est au-dessus des autres éléments */
+}
+
+/* Sidebar */
+.sidebar {
+  background: #3d3d3d;
+  z-index: 1100;
+
+}
+
+/* Default content styles */
+.content {
+  margin-left: 75px;
+  margin-top: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 100vh;
+  padding: 20px 50px;
+  background: transparent;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+/* Conditional styles when .app-container has an AppBar */
+.content-app {
+  margin-top: 70px;
+  min-height: calc(100vh - 60px);
+}
+.No-app-container .content {
+  margin-top: 0;
+  min-height: 100vh;
+}
+
+.content::-webkit-scrollbar {
+  width: 8px;
+  /* Largeur de la barre de défilement */
+}
+
+.content::-webkit-scrollbar-track {
+  background: #dddeea;
+  /* Couleur de fond de la piste */
+  border-radius: 5px;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background-color: #3d3d3d8a;
+  /* Couleur de la barre de défilement */
+  border-radius: 5px;
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+  background-color: #3d3d3d;
+  /* Couleur au survol */
+}
+
+/* Loading Screen Styles */
+.loading-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(-45deg, #3d3d3d, #1a1a1a, #3d3d3d, #1a1a1a);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
+  overflow: hidden;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.rotating-logo {
+  width: 100px;
+  height: 100px;
+  animation: rotate 3s linear infinite, scale 2s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.text- {
+  margin-left: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sopra-hr {
+  letter-spacing: 0.6px;
+  font-size: 39px;
+  font-weight: 800;
+  color: white;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in forwards, slideIn 0.5s ease-in forwards;
+  animation-delay: 0.6s;
+}
+
+.software {
+  font-size: 30px;
+  font-weight: 600;
+  color: white;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in forwards, slideIn 0.5s ease-in forwards;
+  animation-delay: 0.9s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Transition when loading screen disappears */
+.loading-screen.fade-out {
+  animation: fadeOut 0.5s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

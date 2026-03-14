@@ -1,0 +1,96 @@
+.DailySales-container {
+  background: #22c55e;
+}
+
+.Histogram-container {
+  background: linear-gradient(145deg, #1e498a, #2563eb);
+}
+
+.DoughnutSales-container {
+  background-color: rgb(255, 99, 132);
+}
+
+.DoughnutSales-container,
+.DailySales-container,
+.Histogram-container {
+  position: absolute;
+  top: -30px;
+  width: 95%;
+  left: 2.5%;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.DoughnutSales-container:hover,
+.DailySales-container:hover,
+.Histogram-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.Dashboard-stat-Graphe-container {
+  flex: 1;
+  background-color: #ffffff;
+  border-radius: 20px;
+  position: relative;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  .Dashboard-stat-Graphe-infos {
+    padding: 0 20px;
+    margin-top: 270px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .Dashboard-stat-Graphe-identity {
+      padding-left: 10px;
+
+      h2 {
+        font-size: 24px;
+        color: #201f1f;
+        margin: 0;
+      }
+
+      span {
+        font-size: 14px;
+        color: #6b7280;
+      }
+    }
+
+    .Dashboard-stat-Graphe-line {
+      width: 90%;
+      height: 1px;
+      background: linear-gradient(90deg, #6b72801e, #201f1f4b, #201f1f4b, #6b72801e);
+      border-radius: 5px;
+      margin: 15px auto;
+    }
+
+    .Dashboard-stat-Graphe-update {
+      padding-left: 10px;
+
+      span {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        color: #374151;
+
+        svg {
+          margin-right: 8px;
+          font-size: 18px;
+          color: #2563eb;
+        }
+      }
+    }
+  }
+
+}

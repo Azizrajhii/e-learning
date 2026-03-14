@@ -1,0 +1,73 @@
+/* Light Theme Variables */
+:root {
+  --modal-overlay-bg: rgba(0, 0, 0, 0.815);
+  --modal-bg: #ffffff;
+  --modal-text: #000000;
+  --modal-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  --modal-btn-primary: #4f46e5;
+  --modal-btn-primary-hover: #4338ca;
+  --modal-btn-text: #ffffff;
+  --modal-success-accent: #16a34a;
+  --modal-error-accent: #dc2626;
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
+  --modal-overlay-bg: rgba(0, 0, 0, 0.9);
+  --modal-bg: #1e1e2e;
+  --modal-text: #f8fafc;
+  --modal-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  --modal-btn-primary: #6366f1;
+  --modal-btn-primary-hover: #818cf8;
+  --modal-btn-text: #ffffff;
+  --modal-success-accent: #22c55e;
+  --modal-error-accent: #ef4444;
+}
+
+/* Modal with Dark Theme Support */
+.CreateLesson-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--modal-overlay-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+.CreateLesson-modal-box {
+  background: var(--modal-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  min-width: 300px;
+  text-align: center;
+  box-shadow: var(--modal-shadow);
+  color: var(--modal-text);
+  transition: all 0.3s ease;
+}
+
+.CreateLesson-modal-box button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--modal-btn-primary);
+  color: var(--modal-btn-text);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.CreateLesson-modal-box button:hover {
+  background: var(--modal-btn-primary-hover);
+}
+
+.CreateLesson-modal-overlay.success .CreateLesson-modal-box {
+  border-left: 6px solid var(--modal-success-accent);
+}
+.CreateLesson-modal-overlay.error .CreateLesson-modal-box {
+  border-left: 6px solid var(--modal-error-accent);
+}
