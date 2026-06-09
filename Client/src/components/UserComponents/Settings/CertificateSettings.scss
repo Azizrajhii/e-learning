@@ -1,4 +1,6 @@
 
+@use 'sass:color';
+
 // Variables (merged with existing variables)
 $primary-color: #4f46e5;
 $primary-hover: #4338ca;
@@ -109,7 +111,7 @@ $radius-lg: 0.75rem;
     transition: all 0.2s;
 
     &:hover {
-      background: darken($bg-gray, 5%);
+      background: color.adjust($bg-gray, $lightness: -5%);
     }
   }
 }
@@ -377,7 +379,7 @@ $radius-lg: 0.75rem;
     text-decoration: none;
 
     &:hover {
-      background: darken($bg-gray, 5%);
+      background: color.adjust($bg-gray, $lightness: -5%);
     }
   }
 
@@ -403,7 +405,7 @@ $radius-lg: 0.75rem;
       cursor: pointer;
 
       &:hover {
-        background: darken($bg-light, 5%);
+        background: color.adjust($bg-light, $lightness: -5%);
       }
     }
 
@@ -567,7 +569,7 @@ $radius-lg: 0.75rem;
     border: 1px solid $border-color;
 
     &:hover {
-      background: darken($bg-gray, 5%);
+      background: color.adjust($bg-gray, $lightness: -5%);
     }
   }
 

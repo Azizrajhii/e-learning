@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 :root {
   /* Light Theme (Default) */
   --profspace--bg-color: #fff;
@@ -224,7 +226,7 @@ $text-color: #495057;
       p {
         font-size: 1rem;
         line-height: 1.6;
-        color: lighten($text-color, 15%);
+        color: color.adjust($text-color, $lightness: 15%);
       }
     }
   }

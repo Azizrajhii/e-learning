@@ -22,7 +22,6 @@ import { Viewer, Worker, SpecialZoomLevel } from "@react-pdf-viewer/core";
 import { dropPlugin } from "@react-pdf-viewer/drop";
 import { zoomPlugin } from "@react-pdf-viewer/zoom";
 import { pageNavigationPlugin } from "@react-pdf-viewer/page-navigation";
-import pdfWorkerUrl from "pdfjs-dist/build/pdf.worker.min.js?url";
 import {
   FaChevronLeft,
   FaChevronRight,

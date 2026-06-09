@@ -42,12 +42,22 @@ app.use(
 );
 
 // Trust extra CAs if needed
-process.env.NODE_EXTRA_CA_CERTS = require.resolve(
-  "node_extra_ca_certs_mozilla_bundle"
-);
+try {
+  process.env.NODE_EXTRA_CA_CERTS = require.resolve(
+    "node_extra_ca_certs_mozilla_bundle"
+  );
+} catch (error) {
+  // Allow local startup without the optional CA bundle package.
+}
 
 // Connect DB
-connectDB();
+connectDB().then((connected) => {
+  if (connected) {
+    scheduleDailyReminders(io, connectedUsers);
+  } else {
+    console.warn('⚠️ Daily reminder job disabled until MongoDB is available');
+  }
+});
 
 const io = new Server(server, {
   cors: corsOptions,
@@ -137,7 +147,6 @@ app.use("/api/questionnaire" , questionnaireRoutes);
 const {
   scheduleDailyReminders,
 } = require("./controllers/eventReminderJobController");
-scheduleDailyReminders(io, connectedUsers);
 
 // Launch server
 const PORT = process.env.PORT || 5000;

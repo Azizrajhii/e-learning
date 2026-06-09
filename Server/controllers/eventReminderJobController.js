@@ -1,9 +1,15 @@
 const cron = require("node-cron");
+const mongoose = require("mongoose");
 const Event = require("./../models/EventModel");
 const Notification = require("./../models/NotificationModel");
 const User = require("./../models/userModel");
 
 const sendDailyEventReminders = async (io, connectedUsers) => {
+  if (mongoose.connection.readyState !== 1) {
+    console.warn("⚠️ Skipping reminder job because MongoDB is not connected.");
+    return;
+  }
+
   const todayStart = new Date();
   todayStart.setHours(0, 0, 0, 0);
 
